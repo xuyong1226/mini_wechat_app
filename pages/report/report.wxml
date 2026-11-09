@@ -25,7 +25,7 @@
             >{{item.label}}</view>
         </view>
 
-        <jump-loader wx:if="{{viewState === 'loading'}}" text="{{generating ? '正在生成阶段总结…' : '正在读取记录…'}}" />
+        <skeleton wx:if="{{viewState === 'loading'}}" variant="card" rows="3" />
 
         <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
             <jump-loader mood="sad" />

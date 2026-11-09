@@ -42,6 +42,7 @@ Page({
     },
 
     async restore() {
+        this.setData({ viewState: 'loading' });
         const session = await getApp().ensureSession();
         if (!session) {
             getApp().resetSession();
@@ -54,6 +55,7 @@ Page({
     },
 
     async loadEntries() {
+        this.setData({ viewState: 'loading', errorMessage: '' });
         const result = await store.entries.list();
         if (result.error) {
             this.setData({ viewState: 'error', errorMessage: result.error.message || '读取失败' });

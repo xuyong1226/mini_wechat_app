@@ -33,7 +33,7 @@
             </view>
         </view>
 
-        <jump-loader wx:if="{{viewState === 'loading'}}" text="正在读取记录…" />
+        <skeleton wx:if="{{viewState === 'loading'}}" variant="timeline" rows="4" />
 
         <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
             <jump-loader mood="sad" />

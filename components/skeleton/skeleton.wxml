@@ -1,11 +1,24 @@
 <view class="sk-wrap">
-    <view class="sk-daylabel"></view>
-    <view class="sk-row" wx:for="{{rowsArr}}" wx:key="*this">
-        <view class="sk-dot"></view>
-        <view class="sk-body">
-            <view class="sk-line sk-title"></view>
+    <!-- 时间轴变体：记录流 / 待办 / 检索结果（圆点 + 正文行） -->
+    <block wx:if="{{variant === 'timeline'}}">
+        <view class="sk-daylabel"></view>
+        <view class="sk-row" wx:for="{{rowsArr}}" wx:key="*this">
+            <view class="sk-dot"></view>
+            <view class="sk-body">
+                <view class="sk-line sk-title"></view>
+                <view class="sk-line sk-text"></view>
+                <view class="sk-line sk-text sk-short"></view>
+            </view>
+        </view>
+    </block>
+
+    <!-- 卡片变体：详情 / 总结（纸白卡片 + 标题条 + 正文行） -->
+    <block wx:else>
+        <view class="sk-card" wx:for="{{rowsArr}}" wx:key="*this">
+            <view class="sk-line sk-card-title"></view>
+            <view class="sk-line sk-text"></view>
             <view class="sk-line sk-text"></view>
             <view class="sk-line sk-text sk-short"></view>
         </view>
-    </view>
+    </block>
 </view>

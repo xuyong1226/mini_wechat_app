@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "检索",
   "usingComponents": {
-    "jump-loader": "../../components/jump-loader/jump-loader"
+    "jump-loader": "../../components/jump-loader/jump-loader",
+    "skeleton": "../../components/skeleton/skeleton"
   }
 }

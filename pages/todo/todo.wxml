@@ -15,7 +15,7 @@
     </view>
 
     <block wx:else>
-        <jump-loader wx:if="{{viewState === 'loading'}}" text="正在读取待办…" />
+        <skeleton wx:if="{{viewState === 'loading'}}" variant="timeline" rows="5" />
 
         <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
             <jump-loader mood="sad" />

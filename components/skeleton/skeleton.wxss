@@ -50,3 +50,18 @@
     width: 44%;
     margin-bottom: 0;
 }
+
+/* 卡片变体：纸白直角细线卡片占位，与 .card 同版 */
+.sk-card {
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 28rpx 32rpx;
+    margin: 28rpx 48rpx 0;
+}
+
+.sk-card-title {
+    width: 40%;
+    height: 32rpx;
+    margin-bottom: 24rpx;
+}
