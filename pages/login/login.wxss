@@ -1,0 +1,82 @@
+/* 登录页 · SCREEN 07（screen07-login.html / screen07-shot.png）
+   刊头复用 app.wxss 的全局 masthead；本页只定义表单区、协议、页脚。 */
+
+.login-page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 48rpx;
+}
+
+/* 按来源显示的引导文案：刊头下的一行小字 */
+.login-guide {
+    margin: 24rpx 48rpx 0;
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+}
+
+.login-body {
+    margin: 40rpx 48rpx 0;
+}
+
+/* 首屏会话检查中的过渡态 */
+.login-checking {
+    padding: 120rpx 48rpx;
+    text-align: center;
+}
+
+.login-checking-text {
+    font-size: 24rpx;
+    color: var(--ink2);
+    letter-spacing: 2rpx;
+}
+
+/* ---------- 协议勾选（默认未勾） ---------- */
+.agreement {
+    margin-top: 36rpx;
+}
+
+.agreement-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8rpx;
+}
+
+.agreement-box {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 8rpx;
+    border: 2rpx solid var(--ink);
+    border-radius: 4rpx;
+    background: var(--sheet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.agreement-box-on {
+    border-color: var(--ink);
+    background: var(--ink);
+}
+
+.agreement-tick {
+    font-size: 22rpx;
+    line-height: 1;
+    color: var(--sheet);
+}
+
+.agreement-text {
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+}
+
+.agreement-link {
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--red);
+}

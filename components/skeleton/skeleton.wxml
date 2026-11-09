@@ -1,0 +1,11 @@
+<view class="sk-wrap">
+    <view class="sk-daylabel"></view>
+    <view class="sk-row" wx:for="{{rowsArr}}" wx:key="*this">
+        <view class="sk-dot"></view>
+        <view class="sk-body">
+            <view class="sk-line sk-title"></view>
+            <view class="sk-line sk-text"></view>
+            <view class="sk-line sk-text sk-short"></view>
+        </view>
+    </view>
+</view>

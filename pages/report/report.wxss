@@ -1,0 +1,196 @@
+/* 总结页 · 墨黑杂志风：编辑式数据版式，衬线大数字 + 横向细条 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: var(--ink);
+    margin-bottom: 20rpx;
+}
+
+.engine-tag {
+    font-size: 20rpx;
+    color: var(--red);
+    background: transparent;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 4rpx 14rpx;
+    margin-bottom: 16rpx;
+}
+
+.summary-text {
+    display: block;
+    font-size: 26rpx;
+    line-height: 1.9;
+    color: var(--ink);
+    border-left: 4rpx solid var(--red);
+    padding-left: 28rpx;
+}
+
+.stat-row {
+    display: flex;
+    margin-top: 32rpx;
+    padding-top: 24rpx;
+    border-top: 1rpx solid var(--rule);
+}
+
+.stat-box {
+    flex: 1;
+    text-align: left;
+}
+
+.stat-num {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 56rpx;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.stat-done {
+    color: var(--ink2);
+}
+
+.stat-name {
+    display: block;
+    font-size: 20rpx;
+    color: var(--ink2);
+    margin-top: 4rpx;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.bar-name {
+    width: 160rpx;
+    font-size: 22rpx;
+    color: var(--ink2);
+    flex-shrink: 0;
+}
+
+.bar-track {
+    flex: 1;
+    height: 12rpx;
+    background: var(--paper);
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 0;
+}
+
+.bar-count {
+    width: 60rpx;
+    text-align: right;
+    font-size: 22rpx;
+    color: var(--ink2);
+    flex-shrink: 0;
+}
+
+.kw-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+}
+
+.kw {
+    font-size: 20rpx;
+    color: var(--ink2);
+    background: transparent;
+    border-bottom: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 6rpx 0;
+    margin: 0;
+}
+
+.action {
+    background: transparent;
+    border-radius: 0;
+    padding: 28rpx 0;
+    margin: 0 48rpx;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: none;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.action-index {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 0;
+    background: var(--red);
+    color: var(--sheet);
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24rpx;
+    flex-shrink: 0;
+}
+
+.action-body {
+    flex: 1;
+}
+
+.action-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.action-detail {
+    display: block;
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    line-height: 1.6;
+}
+
+.regen-btn {
+    margin: 40rpx 48rpx 0;
+    width: calc(100% - 96rpx);
+}
+
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-bottom: 20rpx;
+}
+
+.retry-btn {
+    margin-top: 24rpx;
+}

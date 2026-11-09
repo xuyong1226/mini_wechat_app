@@ -1,0 +1,74 @@
+<view class="page">
+    <view class="masthead">
+        <text class="masthead-eyebrow">OPEN ITEMS / 未完成</text>
+        <text class="masthead-title">待办</text>
+        <view class="masthead-meta">
+            <text>{{headDate}}</text>
+            <text>{{openTodos.length}} 项未完成 · {{doneTodos.length}} 项已完成</text>
+        </view>
+    </view>
+
+    <view class="card login-card" wx:if="{{authState === 'signed-out'}}">
+        <text class="login-title">未登录</text>
+        <text class="login-desc">前往登录页，用邮箱验证码登录或注册。</text>
+        <button class="btn-ghost" bindtap="onGoLogin">去登录</button>
+    </view>
+
+    <block wx:else>
+        <jump-loader wx:if="{{viewState === 'loading'}}" text="正在读取待办…" />
+
+        <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
+            <jump-loader mood="sad" />
+            <text class="error-text">{{errorMessage}}</text>
+            <button class="btn-ghost retry-btn" bindtap="onRetry">重试</button>
+        </view>
+
+        <block wx:elif="{{viewState === 'ready'}}">
+            <view class="card stat-card">
+                <text class="stat-num">{{openTodos.length}}</text>
+                <text class="stat-label">待处理</text>
+                <text class="stat-divider">·</text>
+                <text class="stat-num stat-done">{{doneTodos.length}}</text>
+                <text class="stat-label">已完成</text>
+            </view>
+
+            <view class="empty" wx:if="{{total === 0}}">
+                还没有待办。在「记录」页写下要做的事，会自动抽取成待办并按优先级排序。
+            </view>
+
+            <view class="todo" wx:for="{{openTodos}}" wx:key="id">
+                <view class="todo-main">
+                    <view class="todo-check-hit" data-id="{{item.id}}" data-status="{{item.status}}" catchtap="onToggle">
+                        <view class="todo-check"></view>
+                    </view>
+                    <view class="todo-body">
+                        <text class="todo-title">{{item.title}}</text>
+                        <view class="todo-meta">
+                            <text class="todo-priority {{item.priorityClass}}">{{item.priorityText}}</text>
+                            <text class="todo-due" wx:if="{{item.due}}">截止 {{item.due}}</text>
+                            <text class="todo-source" wx:if="{{item.sourceEntryId}}" data-id="{{item.sourceEntryId}}" catchtap="onSourceTap">来自记录</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="todo-del" data-id="{{item.id}}" catchtap="onDelete">删除</view>
+            </view>
+
+            <view class="done-head" wx:if="{{doneTodos.length > 0}}" bindtap="onToggleShowDone">
+                <text class="done-title">已完成 {{doneTodos.length}}</text>
+                <text class="done-arrow">{{showDone ? '收起' : '展开'}}</text>
+            </view>
+
+            <view class="todo todo-done" wx:if="{{showDone}}" wx:for="{{doneTodos}}" wx:key="id">
+                <view class="todo-main">
+                    <view class="todo-check-hit" data-id="{{item.id}}" data-status="{{item.status}}" catchtap="onToggle">
+                        <view class="todo-check todo-check-done">✓</view>
+                    </view>
+                    <view class="todo-body">
+                        <text class="todo-title todo-title-done">{{item.title}}</text>
+                    </view>
+                </view>
+                <view class="todo-del" data-id="{{item.id}}" catchtap="onDelete">删除</view>
+            </view>
+        </block>
+    </block>
+</view>

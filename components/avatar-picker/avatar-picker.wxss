@@ -1,0 +1,81 @@
+/* 头像选择器 · 底部弹层：纸白 + 细线 + 朱红选中描边 */
+
+.picker-root {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.picker-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.42);
+}
+
+.picker-sheet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 32rpx 48rpx calc(48rpx + env(safe-area-inset-bottom));
+    background: var(--sheet);
+    border-top: 1rpx solid var(--rule);
+    border-radius: 24rpx 24rpx 0 0;
+}
+
+.picker-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24rpx;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.picker-title {
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 34rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.picker-close {
+    font-size: 24rpx;
+    color: var(--ink2);
+}
+
+.picker-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 28rpx;
+}
+
+.picker-item {
+    width: 25%;
+    padding: 16rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.picker-avatar {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 0;
+    border: 2rpx solid var(--rule);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38rpx;
+    font-weight: 700;
+}
+
+.picker-avatar-on {
+    box-shadow: 0 0 0 4rpx var(--sheet), 0 0 0 8rpx var(--red);
+}

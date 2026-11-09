@@ -1,0 +1,49 @@
+<view class="jl-wrap">
+    <block wx:if="{{mood === 'jump'}}">
+        <view class="jl-stage">
+            <view class="jl-shadow"></view>
+            <view class="jl-anchor">
+                <view class="jl-figure">
+                    <view class="jl-head">
+                        <view class="jl-eye jl-eye-l"></view>
+                        <view class="jl-eye jl-eye-r"></view>
+                        <view class="jl-smile"></view>
+                    </view>
+                    <view class="jl-scarf"></view>
+                    <view class="jl-body"></view>
+                    <view class="jl-arm jl-arm-l"></view>
+                    <view class="jl-arm jl-arm-r"></view>
+                    <view class="jl-leg jl-leg-l"></view>
+                    <view class="jl-leg jl-leg-r"></view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{mood === 'sad'}}">
+        <view class="jl-stage">
+            <view class="jl-puddle"></view>
+            <view class="jl-kneel">
+                <!-- 侧身跪倒：小腿平贴地面 + 膝盖着地 + 大腿收向髋 + 躯干前倾伏低 + 双臂撑地 + 头低头 -->
+                <view class="jl-kneel-shin"></view>
+                <view class="jl-kneel-knee"></view>
+                <view class="jl-kneel-thigh"></view>
+                <view class="jl-kneel-hip"></view>
+                <view class="jl-kneel-torso"></view>
+                <view class="jl-kneel-arm jl-kneel-arm-far"></view>
+                <view class="jl-kneel-arm jl-kneel-arm-near">
+                    <view class="jl-kneel-hand"></view>
+                </view>
+                <view class="jl-kneel-head">
+                    <view class="jl-s-brow jl-s-brow-l"></view>
+                    <view class="jl-s-brow jl-s-brow-r"></view>
+                    <view class="jl-s-eye jl-s-eye-l"></view>
+                    <view class="jl-s-eye jl-s-eye-r"></view>
+                    <view class="jl-s-mouth"></view>
+                </view>
+            </view>
+            <view class="jl-tear jl-tear-l"></view>
+            <view class="jl-tear jl-tear-r"></view>
+        </view>
+    </block>
+    <text class="jl-caption" wx:if="{{text}}">{{text}}</text>
+</view>

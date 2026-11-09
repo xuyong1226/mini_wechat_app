@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "检索",
+  "usingComponents": {
+    "jump-loader": "../../components/jump-loader/jump-loader"
+  }
+}

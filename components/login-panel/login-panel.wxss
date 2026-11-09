@@ -1,0 +1,153 @@
+/* 登录组件 · SCREEN 07 / 07c：去卡片，纸白直角输入，朱红 112px(224rpx) 靠右主按钮 */
+
+.login {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.authform {
+    display: flex;
+    flex-direction: column;
+    margin-top: 44rpx;
+}
+
+/* ---------- 字段标签 ---------- */
+.authlabel {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--ink2);
+    margin-bottom: 16rpx;
+}
+
+.authlabel-gap {
+    margin-top: 44rpx;
+}
+
+.login-input {
+    height: 96rpx;
+    padding: 0 28rpx;
+    font-size: 28rpx;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+}
+
+.login-placeholder {
+    color: #A8A39B;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+}
+
+.login-code {
+    flex: 1;
+}
+
+.login-send {
+    flex-shrink: 0;
+    padding: 0 28rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 24rpx;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+}
+
+.login-send-disabled {
+    color: var(--ink2);
+    background: var(--paper);
+}
+
+/* ---------- 主按钮：224rpx 居中（按确认的版式） ---------- */
+.login-button {
+    /* 微信 button 内置高优先级 margin-left/right:auto，正好用于居中；
+       width 需 !important 才能压过内置规则 */
+    width: 224rpx !important;
+    margin: 44rpx auto 0 !important;
+    height: 88rpx;
+    line-height: 88rpx;
+    padding: 0;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: var(--sheet);
+    background: var(--red);
+    border-radius: 2rpx;
+}
+
+.login-button::after {
+    border: none;
+}
+
+.login-tip {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--ink);
+}
+
+.login-error {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--red);
+}
+
+/* ---------- 辅助链接 ---------- */
+.login-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36rpx;
+}
+
+.login-link {
+    font-size: 24rpx;
+    color: var(--ink2);
+    text-decoration: underline;
+}
+
+/* ---------- 微信登录（次级入口） ---------- */
+.wechat-divider {
+    display: flex;
+    align-items: center;
+    gap: 24rpx;
+    margin: 44rpx 0 28rpx;
+}
+
+.wechat-divider::before,
+.wechat-divider::after {
+    content: '';
+    flex: 1;
+    height: 1rpx;
+    background: var(--rule);
+}
+
+.wechat-divider-text {
+    font-size: 22rpx;
+    color: var(--ink2);
+}
+
+.wechat-button {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1rpx solid var(--ink);
+    border-radius: 2rpx;
+}
+
+.wechat-button::after {
+    border: none;
+}

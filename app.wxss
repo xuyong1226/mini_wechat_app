@@ -1,0 +1,285 @@
+/* 墨黑杂志风 · 全局样式（6 个色值 token，见下方 page 定义与深色 media query）
+   规则：去卡片、去投影、去圆角；1px 细线分组；单一强调色；左右 24px(48rpx) 留白。 */
+
+/* ---------- 6 个色值 token（SCREEN 15 明暗对照，17 屏共用） ---------- */
+page {
+    --paper: #F7F5F0;
+    --ink: #1A1A1A;
+    --ink2: #6B6862;
+    --rule: #E3DFD8;
+    --red: #D6452B;
+    --sheet: #FFFEFA;
+}
+
+/* 跟随系统深色：只换 6 个色值，字号 / 间距 / 结构一律不动 */
+@media (prefers-color-scheme: dark) {
+    page {
+        --paper: #14140F;
+        --ink: #F2EFE7;
+        --ink2: #9A968C;
+        --rule: #35342E;
+        --red: #E8634A;
+        --sheet: #1E1E18;
+    }
+}
+
+page {
+    min-height: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 28rpx;
+}
+
+button {
+    border-radius: 2rpx;
+    font-size: 26rpx;
+    font-weight: 600;
+    letter-spacing: 1rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0;
+}
+
+button::after {
+    border: none;
+}
+
+/* 页面容器：底部留出悬浮胶囊 Tab Bar 的空间 */
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+/* ---------- 去卡片：段落直接排在纸底，用细线分组 ---------- */
+.card {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 28rpx 0 32rpx;
+    margin: 0 48rpx;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.section-title {
+    font-size: 22rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 44rpx 48rpx 12rpx;
+}
+
+.muted {
+    color: var(--ink2);
+    font-size: 24rpx;
+}
+
+/* ---------- 标签 / 筛选 ---------- */
+.tag {
+    display: inline-block;
+    padding: 4rpx 16rpx;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    font-size: 20rpx;
+    background: transparent;
+    color: var(--ink2);
+    margin: 0 12rpx 12rpx 0;
+}
+
+.tag-grey {
+    color: var(--ink2);
+    border-color: var(--rule);
+}
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40rpx;
+    padding: 0 48rpx;
+    margin-top: 32rpx;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.chip {
+    padding: 0 0 14rpx;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink2);
+    font-size: 24rpx;
+    margin: 0;
+    border: none;
+    border-bottom: 4rpx solid transparent;
+}
+
+.chip-active {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--red);
+    font-weight: 600;
+}
+
+/* ---------- 按钮：直角、朱红主色 ---------- */
+.btn-primary {
+    background: var(--red);
+    color: var(--sheet);
+    border: 1rpx solid var(--red);
+    border-radius: 2rpx;
+    font-weight: 600;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1rpx solid var(--ink);
+    border-radius: 2rpx;
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--red);
+    border: 1rpx solid var(--red);
+    border-radius: 2rpx;
+}
+
+/* ---------- 输入区：纸白、直角、细线 ---------- */
+.input-box {
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 24rpx 28rpx;
+    font-size: 28rpx;
+    color: var(--ink);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ---------- 空状态 / 状态屏 ---------- */
+.empty {
+    border: 1rpx dashed var(--rule);
+    background: transparent;
+    text-align: center;
+    color: var(--ink2);
+    font-size: 22rpx;
+    line-height: 1.7;
+    padding: 36rpx 28rpx;
+    margin: 40rpx 48rpx;
+}
+
+.state-wrap {
+    padding: 80rpx 48rpx;
+    text-align: center;
+}
+
+.error-text {
+    color: var(--red);
+    font-size: 24rpx;
+    margin-top: 16rpx;
+}
+
+/* SCREEN 13：朱红短线作视觉锚 */
+.error-text::before {
+    content: '';
+    display: block;
+    width: 48rpx;
+    height: 4rpx;
+    background: var(--red);
+    margin: 0 auto 20rpx;
+}
+
+/* SCREEN 14：空状态主按钮直接给入口 */
+.empty-action {
+    display: block;
+    width: 224rpx;
+    margin: 28rpx auto 0;
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: 26rpx;
+    color: var(--sheet);
+    background: var(--red);
+}
+
+.loading-text {
+    color: var(--ink2);
+    font-size: 24rpx;
+    padding: 40rpx 48rpx;
+}
+
+/* ---------- 刊头：80rpx 衬线大标题 + 2px 墨线 ---------- */
+.masthead {
+    padding: 24rpx 0 28rpx;
+    margin: 0 48rpx;
+    border-bottom: 4rpx solid var(--ink);
+}
+
+.masthead-eyebrow {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 5rpx;
+    color: var(--red);
+    margin-bottom: 14rpx;
+}
+
+.masthead-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC", STSong, "SimSun", serif;
+    font-size: 80rpx;
+    font-weight: 700;
+    letter-spacing: -3rpx;
+    line-height: 1.05;
+    color: var(--ink);
+}
+
+.masthead-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18rpx;
+    font-size: 22rpx;
+    color: var(--ink2);
+    letter-spacing: 1rpx;
+}
+
+.masthead-meta-accent {
+    color: var(--red);
+    font-weight: 600;
+}
+
+/* ---------- 类型标记：实心方块，无背景胶囊 ---------- */
+.entry-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 10rpx;
+    font-size: 24rpx;
+    font-weight: 600;
+    color: var(--ink);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.entry-type::before {
+    content: "";
+    width: 18rpx;
+    height: 18rpx;
+    background: var(--red);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.entry-type-material::before {
+    background: var(--ink);
+}
+
+.entry-type-todo::before {
+    background: var(--ink2);
+}
+
+/* ---------- 编辑式小标签 ---------- */
+.editorial-label {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 28rpx 0 14rpx;
+}

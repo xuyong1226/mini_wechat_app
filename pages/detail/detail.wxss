@@ -1,0 +1,163 @@
+/* 详情页 · 墨黑杂志风：编辑式分区，衬线文档标题，朱红重点标记 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 80rpx;
+}
+
+.card-title {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin-bottom: 16rpx;
+}
+
+.entry-head {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+}
+
+.entry-category {
+    font-size: 22rpx;
+    color: var(--ink2);
+}
+
+.entry-title {
+    display: block;
+    margin-top: 20rpx;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ink);
+}
+
+.entry-time {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 20rpx;
+    color: var(--ink2);
+}
+
+.entry-tags {
+    margin-top: 16rpx;
+}
+
+.body-text {
+    display: block;
+    font-size: 26rpx;
+    line-height: 1.9;
+    color: var(--ink);
+    white-space: pre-wrap;
+    /* SCREEN 05 原文：朱红竖线引用块 */
+    border-left: 4rpx solid var(--red);
+    padding-left: 24rpx;
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16rpx;
+}
+
+.point-dot {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 0;
+    background: var(--red);
+    margin-top: 14rpx;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.point-text {
+    flex: 1;
+    font-size: 24rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+}
+
+.kw-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+}
+
+.kw {
+    font-size: 20rpx;
+    color: var(--ink2);
+    background: transparent;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 4rpx 16rpx;
+    margin: 0;
+}
+
+.todo-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16rpx;
+}
+
+.todo-box {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 0;
+    border: 3rpx solid var(--ink);
+    margin-right: 20rpx;
+    margin-top: 4rpx;
+    flex-shrink: 0;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 24rpx;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+.related {
+    padding: 20rpx 0;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1rpx solid var(--rule);
+    margin-bottom: 0;
+}
+
+.related-title {
+    display: block;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.related-preview {
+    display: block;
+    margin-top: 6rpx;
+    font-size: 22rpx;
+    color: var(--ink2);
+    line-height: 1.5;
+}
+
+.related-reason {
+    display: inline-block;
+    margin-top: 10rpx;
+    font-size: 20rpx;
+    color: var(--red);
+    background: transparent;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 3rpx 14rpx;
+}
+
+.delete-btn {
+    margin: 40rpx 48rpx 0;
+    width: calc(100% - 96rpx);
+}
+
+.retry-btn {
+    margin-top: 24rpx;
+}

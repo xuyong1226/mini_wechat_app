@@ -1,0 +1,84 @@
+/* 设置页 · SCREEN 10（ui-design-proposal.html 第 884 行起）
+   墨黑杂志风：顶部返回 + 刊头 + setgroup 细线分组、无白卡片。
+   设计稿 px 按 2× 换算 rpx，色值沿用全局 token，刊头复用 app.wxss 的 .masthead*。 */
+
+.page2 {
+    padding-bottom: 120rpx;
+}
+
+/* ---------- 分组标题（.sec-label 曾在本页无定义，改用设计稿 .setgroup/.gh 结构） ---------- */
+.setgroup {
+    margin: 44rpx 48rpx 0;
+}
+
+.gh {
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin-bottom: 8rpx;
+}
+
+.setrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36rpx;
+    padding-bottom: 24rpx;
+    border-bottom: 1rpx solid var(--rule);
+    font-size: 24rpx;
+}
+
+.setrow-k {
+    color: var(--ink2);
+}
+
+.setrow-v {
+    font-weight: 600;
+    color: var(--ink);
+    text-align: right;
+    margin-left: 24rpx;
+}
+
+.setrow-link {
+    color: var(--red);
+}
+
+/* ---------- 开关（消息中心） ---------- */
+.switch {
+    position: relative;
+    width: 84rpx;
+    height: 48rpx;
+    border-radius: 24rpx;
+    border: 1rpx solid var(--rule);
+    background: var(--sheet);
+    flex: 0 0 auto;
+}
+
+.switch .knob {
+    position: absolute;
+    top: 4rpx;
+    left: 4rpx;
+    width: 38rpx;
+    height: 38rpx;
+    border-radius: 50%;
+    background: var(--ink2);
+}
+
+.switch.on {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.switch.on .knob {
+    left: 40rpx;
+    background: var(--paper);
+}
+
+.rowhint {
+    display: block;
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+    margin-top: 20rpx;
+}

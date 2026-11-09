@@ -1,0 +1,98 @@
+<view class="page">
+    <view class="masthead">
+        <text class="masthead-eyebrow">FIND ANYTHING / 全文检索</text>
+        <text class="masthead-title">检索</text>
+        <view class="masthead-meta">
+            <text>{{headDate}}</text>
+            <text>全文检索 · 智能问答</text>
+        </view>
+    </view>
+
+    <view class="card login-card" wx:if="{{authState === 'signed-out'}}">
+        <text class="login-title">未登录</text>
+        <text class="login-desc">前往登录页，用邮箱验证码登录或注册。</text>
+        <button class="btn-ghost" bindtap="onGoLogin">去登录</button>
+    </view>
+
+    <block wx:else>
+        <!-- 关键词检索 -->
+        <view class="card">
+            <text class="card-title">关键词检索</text>
+            <view class="search-row">
+                <input
+                    class="input-box search-input"
+                    placeholder="输入关键词，如：承运商、结算、时效"
+                    placeholder-class="search-placeholder"
+                    value="{{keyword}}"
+                    bindinput="onKeywordInput"
+                    bindconfirm="onSearch"
+                />
+                <button class="btn-primary search-btn" style="flex:0 0 auto; width:104rpx; min-width:0; min-height:0; padding:20rpx; font-size:28rpx; line-height:1.4; white-space:nowrap; box-sizing:border-box;" loading="{{searching}}" disabled="{{searching}}" bindtap="onSearch">
+                    搜索
+                </button>
+            </view>
+        </view>
+
+        <jump-loader wx:if="{{viewState === 'loading'}}" text="正在读取记录…" />
+
+        <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
+            <jump-loader mood="sad" />
+            <text class="error-text">{{errorMessage}}</text>
+            <button class="btn-ghost retry-btn" bindtap="onRetry">重试</button>
+        </view>
+
+        <block wx:if="{{viewState === 'ready'}}">
+            <view class="empty" wx:if="{{searched && results.length === 0}}">
+                没有匹配「{{keyword}}」的记录，换个词或先去记录一条。
+            </view>
+
+            <view class="result" wx:for="{{results}}" wx:key="id" data-id="{{item.id}}" bindtap="onResultTap">
+                <view class="result-head">
+                    <text class="entry-type entry-type-{{item.type}}">{{item.type === 'idea' ? '想法' : (item.type === 'material' ? '资料' : '待办')}}</text>
+                    <text class="result-time">{{item.timeText}}</text>
+                </view>
+                <text class="result-title">{{item.title}}</text>
+                <text class="result-preview" user-select="{{true}}">{{item.preview}}</text>
+                <view class="result-hits" wx:if="{{item.hits.length > 0}}">
+                    <text class="hit" wx:for="{{item.hits}}" wx:for-item="hit" wx:key="*this">命中 {{hit}}</text>
+                </view>
+            </view>
+        </block>
+
+        <!-- 智能问答 -->
+        <view class="section-title">智能问答</view>
+        <view class="card">
+            <textarea
+                class="input-box ask-input"
+                placeholder="用一句话问，比如：最近有哪些客户结算还没谈？"
+                placeholder-class="search-placeholder"
+                value="{{question}}"
+                maxlength="300"
+                auto-height
+                bindinput="onQuestionInput"
+            />
+            <button class="btn-primary ask-btn" loading="{{asking}}" disabled="{{asking}}" bindtap="onAsk">
+                提问
+            </button>
+
+            <view class="answer" wx:if="{{answer}}">
+                <text class="answer-label qa-tag">{{engine === 'llm' ? '大模型 · 回答' : '本地检索 · 回答'}}</text>
+                <text class="answer-text" user-select="{{true}}">{{answer}}</text>
+
+                <view class="ref-block" wx:if="{{answerRefs.length > 0}}">
+                    <text class="ref-title">依据的记录</text>
+                    <view class="ref" wx:for="{{answerRefs}}" wx:key="id" data-id="{{item.id}}" bindtap="onRefTap">
+                        <text class="ref-title-text">{{index + 1}}. {{item.title}}</text>
+                    </view>
+                </view>
+
+                <view class="ref-block" wx:if="{{answerSuggestions.length > 0}}">
+                    <text class="ref-title">建议</text>
+                    <view class="suggestion" wx:for="{{answerSuggestions}}" wx:key="*this" data-text="{{item}}" bindtap="onSuggestionTap">
+                        <text class="ref-title-text">{{item}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

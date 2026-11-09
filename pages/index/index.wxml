@@ -1,0 +1,98 @@
+<view class="page">
+    <view class="masthead">
+        <text class="masthead-eyebrow">PERSONAL ARCHIVE / 个人记录</text>
+        <text class="masthead-title">记录</text>
+        <view class="masthead-meta">
+            <text>{{headDate}}</text>
+            <text>共 {{total}} 条 · <text class="masthead-meta-accent">今日 {{todayCount}} 条</text></text>
+        </view>
+    </view>
+
+    <!-- 登录态 -->
+    <view class="card login-card" wx:if="{{authState === 'signed-out'}}">
+        <text class="login-title">未登录</text>
+        <text class="login-desc">前往登录页，用邮箱验证码登录或注册。</text>
+        <button class="btn-ghost" bindtap="onGoLogin">去登录</button>
+    </view>
+
+    <block wx:else>
+        <!-- 输入区：纸白直角细线，不再包白卡片 -->
+        <view class="composer">
+            <textarea
+                class="composer-input"
+                placeholder="随手记一句想法、资料或要做的事…"
+                placeholder-class="composer-placeholder"
+                value="{{draft}}"
+                focus="{{composerFocus}}"
+                maxlength="2000"
+                auto-height
+                bindinput="onDraftInput"
+            />
+            <view class="composer-types">
+                <view
+                    class="composer-type {{draftType === 'idea' ? 'composer-type-active' : ''}}"
+                    data-type="idea"
+                    bindtap="onDraftTypeTap"
+                >想法</view>
+                <view
+                    class="composer-type {{draftType === 'material' ? 'composer-type-active' : ''}}"
+                    data-type="material"
+                    bindtap="onDraftTypeTap"
+                >资料</view>
+                <view
+                    class="composer-type {{draftType === 'todo' ? 'composer-type-active' : ''}}"
+                    data-type="todo"
+                    bindtap="onDraftTypeTap"
+                >待办</view>
+                <text class="composer-hint" wx:if="{{analyzing}}">正在自动整理…</text>
+                <text class="composer-hint" wx:else>不选类型也会自动判断</text>
+            </view>
+            <button class="btn-primary composer-save" loading="{{saving}}" disabled="{{saving}}" bindtap="onSave">
+                保存记录
+            </button>
+        </view>
+
+        <!-- 分类筛选 -->
+        <view class="chip-row">
+            <view
+                class="chip {{activeFilter === item.key ? 'chip-active' : ''}}"
+                wx:for="{{filters}}"
+                wx:key="key"
+                data-key="{{item.key}}"
+                bindtap="onFilterTap"
+            >{{item.label}}</view>
+        </view>
+
+        <!-- 状态 -->
+        <skeleton wx:if="{{viewState === 'loading'}}" rows="{{4}}" />
+
+        <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
+            <jump-loader mood="sad" />
+            <text class="error-text">{{errorMessage}}</text>
+            <button class="btn-ghost retry-btn" bindtap="onRetry">重试</button>
+        </view>
+
+        <view class="empty" wx:elif="{{entries.length === 0}}">
+            还没有记录。上面的输入框随手写一句，就会自动分类、总结并关联。
+            <button class="empty-action" bindtap="onEmptyAction">写第一条记录</button>
+        </view>
+
+        <!-- 记录流：按日期分组 + 左侧时间轴 -->
+        <view class="day-group" wx:for="{{dayGroups}}" wx:key="key" wx:for-item="group">
+            <view class="daylabel">{{group.label}} / {{group.en}}</view>
+            <view class="timeline">
+                <view class="entry entry-{{item.type}}" wx:for="{{group.items}}" wx:key="id" data-id="{{item.id}}" bindtap="onEntryTap">
+                    <view class="entry-head">
+                        <text class="entry-type entry-type-{{item.type}}">{{item.type === 'idea' ? '想法' : (item.type === 'material' ? '资料' : '待办')}}</text>
+                        <text class="entry-time">{{item.timeText}}</text>
+                    </view>
+                    <text class="entry-title">{{item.title}}</text>
+                    <text class="entry-preview">{{item.preview}}</text>
+                    <view class="entry-tags" wx:if="{{item.tags.length > 0}}">
+                        <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

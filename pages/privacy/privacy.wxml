@@ -1,0 +1,119 @@
+<view class="page page2">
+    <view class="masthead">
+        <text class="masthead-eyebrow">PRIVACY / 协议与隐私</text>
+        <text class="masthead-title">协议与隐私</text>
+        <view class="masthead-meta">
+            <text>更新日期 2026.11.06</text>
+            <text>生效 2026.11.06</text>
+        </view>
+    </view>
+
+    <view class="doc-body">
+        <!-- ============ 一、用户协议 ============ -->
+        <view id="terms" class="doc-section">
+            <text class="doc-title">一、用户协议</text>
+            <view class="doc-meta">
+                <text>服务说明</text>
+                <text>账号注册与使用</text>
+                <text>用户行为规范</text>
+                <text>知识产权</text>
+                <text>服务变更与终止</text>
+                <text>免责声明</text>
+                <text>未成年人条款</text>
+                <text>协议更新</text>
+                <text>联系方式</text>
+            </view>
+
+            <text class="sec-label">1. 服务说明</text>
+            <text class="sec-body">「个人信息管家」（以下简称"本应用"）是一款帮助你记录零散想法、资料与待办，并自动归类、摘要、关联、检索与生成阶段总结的个人信息管理工具。本应用由云端账号体系支撑，你的记录保存在你自己的专属云端空间内。</text>
+
+            <text class="sec-label">2. 账号注册与使用</text>
+            <text class="sec-body">2.1 你可以用邮箱或手机号作为账号标识并自行设置登录密码完成注册（注册过程中会发送一次验证码确认归属），也可以选择「微信登录」快捷进入。</text>
+            <text class="sec-body">2.2 微信登录创建的账号与邮箱 / 手机号账号数据互通，可用任一方式登录同一账号；绑定或解绑登录方式可在「我的 — 账号与安全」中完成。</text>
+            <text class="sec-body">2.3 账号密码由你本人保管。你应妥善保管密码，因你主动泄露账号凭证造成的损失由你自行承担。发现账号异常应立即修改密码。</text>
+            <text class="sec-body">2.4 你可以在「我的 — 账号与安全」中修改密码。修改密码需要输入原密码。</text>
+
+            <text class="sec-label">3. 用户行为规范</text>
+            <text class="sec-body">3.1 你应对你录入的全部内容负责，不得上传违反法律法规的内容，不得侵害他人合法权益。</text>
+            <text class="sec-body">3.2 不得利用本应用从事任何违法活动，不得绕过或破坏本应用的访问控制与数据隔离机制。</text>
+            <text class="sec-body">3.3 你对自己创作的内容拥有权利，并保证享有必要的权利授权。</text>
+
+            <text class="sec-label">4. 知识产权</text>
+            <text class="sec-body">本应用的程序、界面、图标、文案与内置头像等设计元素的知识产权归本应用开发者所有。未经许可不得复制、改编或用于商业用途。你录入的内容及其整理结果归你所有。</text>
+
+            <text class="sec-label">5. 服务变更与终止</text>
+            <text class="sec-body">5.1 为保障服务安全与稳定，本应用可能不时进行功能调整、版本升级或停止运营，并在必要情况下提前告知。</text>
+            <text class="sec-body">5.2 你可以随时停止使用并申请删除账号与数据。你违反本协议时，本应用有权限制或终止向你提供服务。</text>
+
+            <text class="sec-label">6. 免责声明</text>
+            <text class="sec-body">本应用按"现状"提供，不对其不中断、不出错作明示或默示担保。本应用生成的摘要、分类、问答与阶段总结由算法生成，可能不准确或不完整，重要决策请以原始内容为准。因不可抗力、网络故障、第三方服务异常等导致的服务中断，本应用不承担赔偿责任。</text>
+
+            <text class="sec-label">7. 未成年人条款</text>
+            <text class="sec-body">本应用面向一般用户。若你是不满 14 周岁的未成年人，请在监护人陪同下阅读本协议并在监护人同意后使用。</text>
+
+            <text class="sec-label">8. 协议更新</text>
+            <text class="sec-body">本协议可能随功能调整而更新，更新后的版本自页面标注的生效日期起适用。若你不同意变更，可停止使用本应用。</text>
+
+            <text class="sec-label">9. 联系方式</text>
+            <text class="sec-body">如对本协议或服务有疑问，可在「我的 — 账号与安全」中通过绑定邮箱与我们联系。</text>
+        </view>
+
+        <!-- ============ 二、隐私政策 ============ -->
+        <view id="privacy" class="doc-section">
+            <text class="doc-title">二、隐私政策</text>
+            <view class="doc-meta">
+                <text>我们收集的信息</text>
+                <text>如何使用</text>
+                <text>存储与安全</text>
+                <text>第三方服务</text>
+                <text>信息共享与披露</text>
+                <text>你的权利</text>
+                <text>未成年人保护</text>
+                <text>政策更新</text>
+                <text>联系方式</text>
+            </view>
+
+            <text class="sec-label">1. 我们收集哪些信息</text>
+            <text class="sec-body">1.1 <text class="doc-strong">账号信息</text>：你的账号标识（邮箱或手机号）、密码的加密凭证、随机分配的初始昵称，以及你自行设置的昵称与头像。选择微信登录时，由微信平台校验身份并向云端换取会话；本应用不自行保存微信 openid、不获取你的微信昵称与头像。</text>
+            <text class="sec-body">1.2 <text class="doc-strong">你主动录入的内容</text>：记录正文、类型、标签、关键词、摘要、重点、待办事项，以及阶段总结所依据的统计数据。</text>
+            <text class="sec-body">1.3 <text class="doc-strong">运行日志</text>：为排查故障与保障安全所必需的调用记录与错误信息。</text>
+            <text class="sec-body">我们不会收集你的微信昵称、微信头像、位置、相册、通讯录等与本应用功能无关的信息。</text>
+
+            <text class="sec-label">2. 我们如何使用这些信息</text>
+            <text class="sec-body">2.1 用于账号登录与鉴权、数据在你的专属空间内的存取隔离，以及「我的」页面展示你自己的资料。</text>
+            <text class="sec-body">2.2 <text class="doc-strong">调用大模型处理你的内容</text>：当你使用记录整理、检索问答或阶段总结功能时，你录入的文本会提交给云端大模型，用于生成分类、摘要、关键词、重点、待办与回答。提交的内容仅用于该次处理，不会用于训练，也不向其他用户公开。</text>
+            <text class="sec-body">2.3 当大模型调用失败时，应用会回退到本地规则引擎在你的设备上完成基础整理，过程同样不上传。</text>
+
+            <text class="sec-label">3. 数据存储与安全</text>
+            <text class="sec-body">3.1 你的记录与待办保存在云端数据库中，并通过行级安全策略与账号绑定，仅你本人可读写；其他账号无法访问。</text>
+            <text class="sec-body">3.2 账号密码不以明文保存；会话令牌保存在设备本地，密钥材料不在本应用中。</text>
+            <text class="sec-body">3.3 我们采取访问控制、传输加密等措施保护你的信息。互联网传输存在固有风险，无法绝对避免。</text>
+
+            <text class="sec-label">4. 第三方服务</text>
+            <text class="sec-body">4.1 <text class="doc-strong">微信平台</text>：提供小程序运行环境、微信登录凭证（`wx.login`）与分享能力。微信登录仅用于换取向云端证明身份的会话，本应用不索取昵称、头像、手机号、位置、相册或通讯录。</text>
+            <text class="sec-body">4.2 <text class="doc-strong">邮件与短信通道</text>：用于发送注册验证码、找回密码验证码与安全通知，仅使用你主动提供的邮箱或手机号。</text>
+            <text class="sec-body">4.3 <text class="doc-strong">云服务与大模型服务</text>：承担数据存储与智能处理，共享范围以完成该次处理所必需为限。</text>
+            <text class="sec-body">上述第三方均受其自身隐私政策约束，如需了解可向我们索取对应说明。</text>
+
+            <text class="sec-label">5. 信息共享与披露</text>
+            <text class="sec-body">除法律法规要求、司法或行政机关依法提出要求，或为提供前述第三方服务所必需外，我们不会向其他主体提供你的个人信息。我们不会出售你的个人信息。</text>
+
+            <text class="sec-label">6. 你的权利</text>
+            <text class="sec-body">6.1 <text class="doc-strong">查阅与更正</text>：可在「我的」中查看与修改昵称、头像与绑定信息。</text>
+            <text class="sec-body">6.2 <text class="doc-strong">删除</text>：可在记录详情中删除单条记录；删除记录时其来源待办一并移除。</text>
+            <text class="sec-body">6.3 <text class="doc-strong">撤回同意</text>：你可随时取消对协议与隐私政策的同意，停止使用后应用将不再处理你的信息。</text>
+            <text class="sec-body">6.4 <text class="doc-strong">注销账号</text>：你可申请注销账号并删除全部数据，注销后数据不可恢复。</text>
+
+            <text class="sec-label">7. 未成年人保护</text>
+            <text class="sec-body">若你是不满 14 周岁的未成年人，请在监护人陪同下使用本应用，并由监护人代为行使本节所列权利。</text>
+
+            <text class="sec-label">8. 政策更新</text>
+            <text class="sec-body">本政策可能随功能与法规变化而更新，页面顶部标注最新更新日期。涉及处理目的、方式或信息种类的重要变化时，我们会在应用内以显著方式提示。</text>
+
+            <text class="sec-label">9. 联系方式</text>
+            <text class="sec-body">如需行使本节所列权利，或对本政策有疑问，可在「我的 — 账号与安全」中通过绑定邮箱与我们联系。</text>
+        </view>
+
+        <text class="doc-tailhint">全文共 18 节，可向下滚动查看完整条款；本协议为模板，正式发布前需法务复核。</text>
+    </view>
+</view>

@@ -1,0 +1,182 @@
+/* 检索页 · 墨黑杂志风：整行纸白输入区 + 细线结果列表 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+.card-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: var(--ink);
+    margin-bottom: 20rpx;
+}
+
+.search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 16rpx;
+}
+
+.search-input {
+    flex: 1;
+    height: 80rpx;
+    box-sizing: border-box;
+}
+
+.search-placeholder {
+    color: #A8A39B;
+}
+
+.search-btn {
+    flex: 0 0 auto;
+    width: 100rpx;
+    min-width: 0;
+    min-height: 0;
+    padding: 20rpx;
+    font-size: 28rpx;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+.result {
+    background: transparent;
+    border-radius: 0;
+    padding: 24rpx 0 28rpx;
+    margin: 0 48rpx;
+    box-shadow: none;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.result-time {
+    font-size: 20rpx;
+    color: var(--ink2);
+}
+
+.result-title {
+    display: block;
+    margin-top: 12rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+.result-preview {
+    display: block;
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    line-height: 1.6;
+}
+
+.result-hits {
+    margin-top: 12rpx;
+}
+
+.hit {
+    display: inline-block;
+    font-size: 20rpx;
+    color: var(--red);
+    background: transparent;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 3rpx 14rpx;
+    margin: 0 12rpx 8rpx 0;
+}
+
+.ask-input {
+    min-height: 120rpx;
+    line-height: 1.6;
+}
+
+.ask-btn {
+    margin-top: 16rpx;
+}
+
+.answer {
+    margin-top: 28rpx;
+    padding-top: 24rpx;
+    border-top: 1rpx solid var(--rule);
+}
+
+.answer-label {
+    display: inline-block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: var(--red);
+    margin-bottom: 14rpx;
+}
+
+/* SCREEN 02 引擎标签：朱红描边小 chip */
+.qa-tag {
+    border: 1rpx solid var(--red);
+    padding: 4rpx 14rpx;
+}
+
+.answer-text {
+    display: block;
+    font-size: 26rpx;
+    line-height: 1.9;
+    color: var(--ink);
+    white-space: pre-wrap;
+}
+
+.ref-block {
+    margin-top: 24rpx;
+}
+
+.ref-title {
+    display: block;
+    font-size: 20rpx;
+    letter-spacing: 2rpx;
+    color: var(--ink2);
+    margin-bottom: 10rpx;
+}
+
+.ref,
+.suggestion {
+    padding: 16rpx 0;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1rpx solid var(--rule);
+    margin-bottom: 0;
+}
+
+.ref-title-text {
+    font-size: 24rpx;
+    color: var(--ink);
+}
+
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-bottom: 20rpx;
+}
+
+.retry-btn {
+    margin-top: 24rpx;
+}

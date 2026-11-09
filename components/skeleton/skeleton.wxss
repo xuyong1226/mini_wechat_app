@@ -1,0 +1,52 @@
+/* SCREEN 12 加载中：骨架块与细线同色系，按真实版面尺寸占位 */
+.sk-wrap {
+    margin: 40rpx 48rpx 0;
+}
+
+.sk-daylabel {
+    width: 160rpx;
+    height: 22rpx;
+    background: var(--rule);
+    margin-bottom: 28rpx;
+}
+
+.sk-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24rpx;
+    padding: 28rpx 0;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.sk-dot {
+    width: 16rpx;
+    height: 16rpx;
+    flex-shrink: 0;
+    margin-top: 8rpx;
+    background: var(--rule);
+}
+
+.sk-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.sk-line {
+    height: 22rpx;
+    background: var(--rule);
+    margin-bottom: 16rpx;
+}
+
+.sk-title {
+    width: 62%;
+    height: 32rpx;
+}
+
+.sk-text {
+    width: 100%;
+}
+
+.sk-short {
+    width: 44%;
+    margin-bottom: 0;
+}

@@ -1,0 +1,202 @@
+/* 账号与安全 · SCREEN 08（ui-design-proposal.html 第 815 行起）
+   墨黑杂志风：顶部返回 + 刊头 + 朱红分组标 + 细线行、无白卡片、页内展开表单。
+   设计稿 px 按 2× 换算 rpx，色值沿用全局 token，刊头复用 app.wxss 的 .masthead*。 */
+
+.page2 {
+    padding-bottom: 96rpx;
+}
+
+/* ---------- 分组标（朱红小号加宽字距） ---------- */
+.sec-label {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 44rpx 48rpx 0;
+}
+
+.sec-gap {
+    margin-top: 56rpx;
+}
+
+/* ---------- 细线行 ---------- */
+.settingrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 48rpx;
+    padding: 26rpx 0 22rpx;
+    border-bottom: 1rpx solid var(--rule);
+    font-size: 24rpx;
+}
+
+.row-k {
+    color: var(--ink2);
+}
+
+.row-v {
+    font-weight: 600;
+    color: var(--ink);
+    text-align: right;
+    margin-left: 24rpx;
+}
+
+.row-link {
+    color: var(--red);
+}
+
+.rowhint {
+    display: block;
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+    margin: 20rpx 48rpx 0;
+}
+
+/* ---------- 登录方式 ---------- */
+.provider-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 48rpx;
+    padding: 26rpx 0 22rpx;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.provider-main {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+    flex: 1;
+    min-width: 0;
+}
+
+.provider-main .row-k {
+    flex-shrink: 0;
+    width: 120rpx;
+}
+
+.provider-value {
+    font-size: 24rpx;
+    color: var(--ink2);
+    opacity: .55;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.provider-value.is-bound {
+    color: var(--ink);
+    opacity: 1;
+}
+
+.provider-btn {
+    flex-shrink: 0;
+    height: 56rpx;
+    line-height: 56rpx;
+    padding: 0 28rpx;
+    font-size: 24rpx;
+    margin: 0;
+}
+
+.provider-tag {
+    flex-shrink: 0;
+    font-size: 22rpx;
+    color: var(--ink2);
+}
+
+/* ---------- 备用联系方式：行内输入 ---------- */
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+    margin: 24rpx 48rpx 0;
+}
+
+.contact-row .row-k {
+    flex-shrink: 0;
+}
+
+/* ---------- 页内展开表单 ---------- */
+.field-input {
+    flex: 1;
+    height: 80rpx;
+    padding: 0 24rpx;
+    font-size: 26rpx;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.field-block {
+    display: block;
+    width: auto;
+    margin: 20rpx 48rpx 0;
+}
+
+.field-placeholder {
+    color: var(--ink2);
+}
+
+.field-btn {
+    display: block;
+    width: auto;
+    margin: 20rpx 48rpx 0;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+    margin: 20rpx 48rpx 0;
+}
+
+.field-code {
+    margin-top: 0;
+}
+
+.send-btn {
+    flex-shrink: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 28rpx;
+    font-size: 24rpx;
+}
+
+/* ---------- 未登录态 / 反馈 ---------- */
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+}
+
+.login-tip {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--ink);
+}
+
+.login-error {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--red);
+}

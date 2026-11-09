@@ -1,0 +1,98 @@
+<view class="page">
+    <view class="masthead">
+        <text class="masthead-eyebrow">WEEKLY REVIEW / 阶段回顾</text>
+        <text class="masthead-title">总结</text>
+        <view class="masthead-meta">
+            <text>{{headDate}}</text>
+            <text>近 {{days}} 天 · 阶段总结与行动建议</text>
+        </view>
+    </view>
+
+    <view class="card login-card" wx:if="{{authState === 'signed-out'}}">
+        <text class="login-title">未登录</text>
+        <text class="login-desc">前往登录页，用邮箱验证码登录或注册。</text>
+        <button class="btn-ghost" bindtap="onGoLogin">去登录</button>
+    </view>
+
+    <block wx:else>
+        <view class="chip-row">
+            <view
+                class="chip {{days === item.key ? 'chip-active' : ''}}"
+                wx:for="{{ranges}}"
+                wx:key="key"
+                data-days="{{item.key}}"
+                bindtap="onRangeTap"
+            >{{item.label}}</view>
+        </view>
+
+        <jump-loader wx:if="{{viewState === 'loading'}}" text="{{generating ? '正在生成阶段总结…' : '正在读取记录…'}}" />
+
+        <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
+            <jump-loader mood="sad" />
+            <text class="error-text">{{errorMessage}}</text>
+            <button class="btn-ghost retry-btn" bindtap="onRetry">重试</button>
+        </view>
+
+        <block wx:elif="{{viewState === 'ready'}}">
+            <view class="empty" wx:if="{{!stats || stats.total === 0}}">
+                还没有记录。先在「记录」页写几条，这里就会生成阶段总结和行动建议。
+            </view>
+
+            <block wx:else>
+                <view class="card">
+                    <view class="card-head">
+                        <text class="card-title">阶段总结</text>
+                        <text class="engine-tag">{{engine === 'llm' ? '大模型生成' : '本地统计'}}</text>
+                    </view>
+                    <text class="summary-text">{{summary}}</text>
+
+                    <view class="stat-row" wx:if="{{stats}}">
+                        <view class="stat-box">
+                            <text class="stat-num">{{stats.total}}</text>
+                            <text class="stat-name">总记录</text>
+                        </view>
+                        <view class="stat-box">
+                            <text class="stat-num">{{stats.open}}</text>
+                            <text class="stat-name">未收口</text>
+                        </view>
+                        <view class="stat-box">
+                            <text class="stat-num stat-done">{{stats.done}}</text>
+                            <text class="stat-name">已完成</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="card" wx:if="{{categories.length > 0}}">
+                    <text class="card-title">内容分布</text>
+                    <view class="bar-row" wx:for="{{categories}}" wx:key="key">
+                        <text class="bar-name">{{item.name}}</text>
+                        <view class="bar-track">
+                            <view class="bar-fill" style="width: {{item.percent}}%"></view>
+                        </view>
+                        <text class="bar-count">{{item.count}}</text>
+                    </view>
+                </view>
+
+                <view class="card" wx:if="{{keywords.length > 0}}">
+                    <text class="card-title">高频关键词</text>
+                    <view class="kw-row">
+                        <text class="kw" wx:for="{{keywords}}" wx:key="name">{{item.name}} ×{{item.count}}</text>
+                    </view>
+                </view>
+
+                <view class="section-title">后续行动建议</view>
+                <view class="action" wx:for="{{actions}}" wx:key="title">
+                    <view class="action-index">{{index + 1}}</view>
+                    <view class="action-body">
+                        <text class="action-title">{{item.title}}</text>
+                        <text class="action-detail" wx:if="{{item.detail}}">{{item.detail}}</text>
+                    </view>
+                </view>
+
+                <button class="btn-ghost regen-btn" loading="{{generating}}" disabled="{{generating}}" bindtap="onRegenerate">
+                    重新生成
+                </button>
+            </block>
+        </block>
+    </block>
+</view>

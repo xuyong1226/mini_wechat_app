@@ -1,0 +1,17 @@
+<view class="tabbar-wrap">
+    <view class="pill">
+        <view
+            class="tabitem {{selected === index ? 'on' : ''}}"
+            wx:for="{{list}}"
+            wx:key="pagePath"
+            data-path="{{item.pagePath}}"
+            data-index="{{index}}"
+            hover-class="tabitem-hover"
+            hover-stay-time="120"
+            bindtap="onTap"
+        >
+            <text class="tabtext">{{item.text}}</text>
+            <view class="dot"></view>
+        </view>
+    </view>
+</view>

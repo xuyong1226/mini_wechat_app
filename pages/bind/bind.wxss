@@ -1,0 +1,110 @@
+/* 绑定登录方式 · 沿用墨黑杂志风：纸白直角输入、朱红主按钮 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 80rpx;
+}
+
+.page-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 40rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.page-desc {
+    display: block;
+    margin-top: 12rpx;
+    font-size: 24rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+}
+
+.card-title {
+    display: block;
+    font-size: 24rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: var(--ink);
+    margin-bottom: 20rpx;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24rpx 0;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.row-input {
+    gap: 20rpx;
+}
+
+.row-label {
+    font-size: 26rpx;
+    color: var(--ink);
+    flex-shrink: 0;
+}
+
+.row-value {
+    font-size: 26rpx;
+    color: var(--ink2);
+}
+
+.row-hint {
+    display: block;
+    margin-top: 16rpx;
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+}
+
+.field-input {
+    flex: 1;
+    height: 80rpx;
+    padding: 0 24rpx;
+    font-size: 26rpx;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+}
+
+.field-block {
+    display: block;
+    width: 100%;
+    margin-top: 20rpx;
+}
+
+.field-placeholder {
+    color: #A8A39B;
+}
+
+.field-btn {
+    margin-top: 20rpx;
+    width: 100%;
+}
+
+.send-btn {
+    flex-shrink: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 24rpx;
+    font-size: 24rpx;
+}
+
+.tip {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--ink);
+}
+
+.error {
+    display: block;
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: var(--red);
+}

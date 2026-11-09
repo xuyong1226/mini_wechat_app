@@ -1,0 +1,61 @@
+<view class="page page2">
+    <view class="content">
+        <view class="masthead">
+            <text class="masthead-eyebrow">NOTIFICATIONS / 消息中心</text>
+            <text class="masthead-title">消息中心</text>
+            <view class="masthead-meta">
+                <text>共 {{total}} 条</text>
+                <text class="masthead-meta-accent">未读 {{unread}}</text>
+            </view>
+        </view>
+
+        <view class="msgfilter">
+            <view
+                wx:for="{{filters}}"
+                wx:key="key"
+                class="chip {{active === item.key ? 'on' : ''}}"
+                data-key="{{item.key}}"
+                bindtap="onFilter"
+            >{{item.label}}</view>
+            <view class="tools">
+                <image class="ic" src="/images/icon-broom.png" bindtap="onMarkAll" />
+                <image class="ic danger" src="/images/icon-trash.png" bindtap="onAskClear" />
+            </view>
+        </view>
+
+        <view class="msglist">
+            <view
+                class="msg {{item.read ? '' : 'unread'}}"
+                wx:for="{{list}}"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="onTapItem"
+            >
+                <image class="mi" src="{{item.icon}}" />
+                <view class="mb">
+                    <text class="mt">{{item.title}}</text>
+                    <text class="ms">{{item.body}}</text>
+                    <text class="mti">{{item.categoryLabel}} · {{item.timeText}}</text>
+                </view>
+                <view class="right">
+                    <text class="time">{{item.shortTime}}</text>
+                    <view class="ud {{item.read ? 'off' : ''}}"></view>
+                </view>
+            </view>
+        </view>
+
+        <view class="msgempty" wx:if="{{!list.length}}">暂无通知</view>
+    </view>
+
+    <block wx:if="{{showClear}}">
+        <view class="sheet-backdrop" bindtap="onCancelClear"></view>
+        <view class="sheet">
+            <text class="stitle">确认清空全部通知？</text>
+            <text class="ssub">此操作不可撤销，清空后所有通知将从列表移除。若有未读项，将一并标记为已读。</text>
+            <view class="sbtns">
+                <view class="sbtn ok" bindtap="onConfirmClear">确认清空</view>
+                <view class="sbtn cancel" bindtap="onCancelClear">取消</view>
+            </view>
+        </view>
+    </block>
+</view>

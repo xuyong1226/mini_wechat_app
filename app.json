@@ -1,0 +1,55 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/index/index",
+        "pages/search/search",
+        "pages/todo/todo",
+        "pages/report/report",
+        "pages/detail/detail",
+        "pages/profile/profile",
+        "pages/account/account",
+        "pages/bind/bind",
+        "pages/settings/settings",
+        "pages/messages/messages",
+        "pages/privacy/privacy"
+    ],
+    "window": {
+        "navigationBarTitleText": "个人信息管家",
+        "navigationBarBackgroundColor": "#F7F5F0",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7F5F0",
+        "backgroundTextStyle": "dark"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#6B6862",
+        "selectedColor": "#1A1A1A",
+        "backgroundColor": "#FFFEFA",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "记录"
+            },
+            {
+                "pagePath": "pages/search/search",
+                "text": "检索"
+            },
+            {
+                "pagePath": "pages/todo/todo",
+                "text": "待办"
+            },
+            {
+                "pagePath": "pages/report/report",
+                "text": "总结"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "text": "我的"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}

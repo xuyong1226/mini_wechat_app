@@ -1,0 +1,69 @@
+/* 协议与隐私页 · SCREEN 09（ui-design-proposal.html 第 845 行起）
+   墨黑杂志风长文阅读器：纸底、衬线大标题、章节索引 chips、朱红小节标。
+   设计稿 px 按 2× 换算 rpx，色值沿用全局 token，刊头复用 app.wxss 的 .masthead*。 */
+
+.page2 {
+    padding-bottom: 96rpx;
+}
+
+/* ---------- 两篇文档 ---------- */
+.doc-section {
+    margin: 0 48rpx;
+}
+
+.doc-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -1rpx;
+    color: var(--ink);
+    margin: 36rpx 0 16rpx;
+}
+
+/* 章节索引：ink2 小字换行排布，下压 2px 墨线 */
+.doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12rpx 24rpx;
+    padding-bottom: 32rpx;
+    border-bottom: 4rpx solid var(--ink);
+}
+
+.doc-meta text {
+    font-size: 22rpx;
+    color: var(--ink2);
+}
+
+/* 小节标：朱红小号加宽字距 */
+.sec-label {
+    display: block;
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 28rpx 0 14rpx;
+}
+
+.sec-body {
+    display: block;
+    font-size: 24rpx;
+    line-height: 1.9;
+    color: var(--ink2);
+}
+
+.doc-strong {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* 尾注 */
+.doc-tailhint {
+    display: block;
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: var(--ink2);
+    margin: 28rpx 48rpx 0;
+}

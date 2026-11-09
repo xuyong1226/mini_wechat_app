@@ -1,0 +1,169 @@
+/* 记录页 · 墨黑杂志风：纸白输入区 + 日期分组时间轴 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+.composer {
+    background: var(--sheet);
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    padding: 28rpx 32rpx 24rpx;
+    margin: 40rpx 48rpx 0;
+}
+
+.composer-input {
+    width: 100%;
+    min-height: 140rpx;
+    font-size: 28rpx;
+    line-height: 1.7;
+    color: var(--ink);
+    box-sizing: border-box;
+}
+
+.composer-placeholder {
+    color: #A8A39B;
+}
+
+.composer-types {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 36rpx;
+    margin-top: 24rpx;
+    padding-bottom: 8rpx;
+}
+
+.composer-type {
+    padding: 0 0 8rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 4rpx solid transparent;
+    margin-right: 0;
+}
+
+.composer-type-active {
+    color: var(--ink);
+    font-weight: 600;
+    background: transparent;
+    border-bottom-color: var(--red);
+}
+
+.composer-hint {
+    font-size: 20rpx;
+    color: var(--ink2);
+    margin-left: auto;
+}
+
+.composer-save {
+    width: 224rpx;
+    margin: 28rpx 0 0 auto;
+    height: 72rpx;
+    line-height: 72rpx;
+}
+
+/* 日期分组 + 左侧 1px 竖线 + 方块节点 */
+.daylabel {
+    font-size: 22rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 44rpx 48rpx 8rpx;
+}
+
+.timeline {
+    border-left: 1rpx solid var(--rule);
+    margin: 0 48rpx 0 58rpx;
+    padding-left: 36rpx;
+}
+
+.entry {
+    position: relative;
+    border-bottom: 1rpx solid var(--rule);
+    padding: 24rpx 0 28rpx;
+    background: transparent;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.entry::before {
+    content: "";
+    position: absolute;
+    left: -43rpx;
+    top: 34rpx;
+    width: 14rpx;
+    height: 14rpx;
+    background: var(--red);
+}
+
+.entry-material::before {
+    background: var(--ink);
+}
+
+.entry-todo::before {
+    background: var(--ink2);
+}
+
+.entry-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.entry-time {
+    font-size: 20rpx;
+    color: var(--ink2);
+    letter-spacing: 1rpx;
+}
+
+.entry-title {
+    display: block;
+    margin-top: 12rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+}
+
+.entry-preview {
+    display: block;
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.entry-tags {
+    margin-top: 14rpx;
+}
+
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-bottom: 20rpx;
+}
+
+.retry-btn {
+    margin-top: 24rpx;
+}

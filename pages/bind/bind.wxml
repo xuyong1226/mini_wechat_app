@@ -1,0 +1,85 @@
+<view class="page">
+    <view class="card">
+        <text class="page-title">{{title}}</text>
+        <text class="page-desc">{{desc}}</text>
+    </view>
+
+    <view class="card" wx:if="{{bound}}">
+        <view class="row">
+            <text class="row-label">已绑定</text>
+            <text class="row-value">{{boundText}}</text>
+        </view>
+        <text class="row-hint">当前账号已绑定该登录方式，无需重复绑定。</text>
+        <button class="btn-ghost field-btn" bindtap="onBack">返回</button>
+    </view>
+
+    <block wx:else>
+        <!-- 微信：只需一次授权 -->
+        <view class="card" wx:if="{{provider === 'wechat'}}">
+            <text class="card-title">微信授权</text>
+            <text class="row-hint">点击下方按钮唤起微信授权。授权后微信身份会并入当前账号，用微信登录即可看到同一份记录。</text>
+            <button
+                class="btn-primary field-btn"
+                loading="{{submitting}}"
+                disabled="{{submitting}}"
+                bindtap="onBindWechat"
+            >授权并绑定</button>
+        </view>
+
+        <!-- 邮箱 / 手机号：验证码 + 新账号补密码 -->
+        <view class="card" wx:else>
+            <text class="card-title">{{inputLabel}}</text>
+            <view class="row row-input">
+                <input
+                    class="field-input"
+                    type="text"
+                    placeholder="{{placeholder}}"
+                    placeholder-class="field-placeholder"
+                    value="{{identifier}}"
+                    bindinput="onIdentifierInput"
+                />
+                <view class="btn-ghost send-btn" bindtap="onSendCode">{{countdown > 0 ? countdown + 's' : (sending ? '发送中' : '获取验证码')}}</view>
+            </view>
+
+            <block wx:if="{{codeSent}}">
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    placeholder="验证码"
+                    placeholder-class="field-placeholder"
+                    value="{{code}}"
+                    bindinput="onCodeInput"
+                />
+                <input
+                    wx:if="{{needPassword}}"
+                    class="field-input field-block"
+                    type="text"
+                    password="{{true}}"
+                    placeholder="为该账号设置密码（至少6位）"
+                    placeholder-class="field-placeholder"
+                    value="{{password}}"
+                    bindinput="onPasswordInput"
+                />
+            </block>
+
+            <button
+                class="btn-primary field-btn"
+                loading="{{submitting}}"
+                disabled="{{submitting}}"
+                bindtap="onConfirmCode"
+            >确认绑定</button>
+            <text class="row-hint">绑定后该{{inputLabel}}成为本账号的第二种登录方式，原有账号数据不变。</text>
+        </view>
+
+        <view class="card" wx:if="{{pending}}">
+            <text class="card-title">{{conflict ? '归属冲突' : '绑定未完成'}}</text>
+            <text class="row-hint">{{conflict ? '这个登录方式已经在另一个账号下用过。合并会让两个账号的数据互相可见，系统不会自动合并，由你决定。' : '已经用新方式登录，但并入原账号这一步没成功。原账号的记录没有任何改动。'}}</text>
+            <button wx:if="{{conflict}}" class="btn-primary field-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onForceMerge">合并到当前账号</button>
+            <button wx:else class="btn-primary field-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onRetryBind">重试绑定</button>
+            <button class="btn-ghost field-btn" bindtap="onBack">稍后再说</button>
+        </view>
+
+        <text class="tip" wx:if="{{tip}}">{{tip}}</text>
+        <text class="error" wx:if="{{error}}">{{error}}</text>
+    </block>
+</view>

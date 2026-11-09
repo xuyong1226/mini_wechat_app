@@ -1,0 +1,35 @@
+<view class="page login-page">
+    <block wx:if="{{viewState === 'ready'}}">
+        <!-- 刊头：沿用全局 masthead，与各主屏同一套版式 -->
+        <view class="masthead">
+            <text class="masthead-eyebrow">SIGN IN / 个人空间</text>
+            <text class="masthead-title">登录</text>
+            <view class="masthead-meta">
+                <text>账号密码登录</text>
+                <text class="masthead-meta-accent">仅本人可见</text>
+            </view>
+        </view>
+
+        <view class="login-guide" wx:if="{{desc}}">{{desc}}</view>
+
+        <view class="login-body">
+            <login-panel bind:signedin="onSignedIn" agreed="{{agreed}}" />
+
+            <view class="agreement">
+                <view class="agreement-row">
+                    <view class="agreement-box {{agreed ? 'agreement-box-on' : ''}}" bindtap="onToggleAgree">
+                        <text class="agreement-tick" wx:if="{{agreed}}">✓</text>
+                    </view>
+                    <text class="agreement-text">我已阅读并同意</text>
+                    <text class="agreement-link" catchtap="onOpenTerms">《用户协议》</text>
+                    <text class="agreement-text">与</text>
+                    <text class="agreement-link" catchtap="onOpenPrivacy">《隐私政策》</text>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <view class="login-checking" wx:else>
+        <text class="login-checking-text">正在检查登录状态…</text>
+    </view>
+</view>

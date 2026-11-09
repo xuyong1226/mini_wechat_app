@@ -1,0 +1,23 @@
+<view class="picker-root" wx:if="{{visible}}">
+    <view class="picker-mask" bindtap="onClose"></view>
+    <view class="picker-sheet">
+        <view class="picker-head">
+            <text class="picker-title">选择头像</text>
+            <text class="picker-close" bindtap="onClose">关闭</text>
+        </view>
+        <view class="picker-grid">
+            <view
+                class="picker-item"
+                wx:for="{{list}}"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="onSelect"
+            >
+                <view
+                    class="picker-avatar {{current === item.id ? 'picker-avatar-on' : ''}}"
+                    style="background: {{item.bg}}; color: {{item.fg}};"
+                >{{item.glyph}}</view>
+            </view>
+        </view>
+    </view>
+</view>

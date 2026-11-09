@@ -1,0 +1,68 @@
+<view class="page">
+    <jump-loader wx:if="{{viewState === 'loading'}}" text="正在读取…" />
+
+    <view class="state-wrap" wx:elif="{{viewState === 'error'}}">
+        <jump-loader mood="sad" />
+        <text class="error-text">{{errorMessage}}</text>
+        <button class="btn-ghost retry-btn" bindtap="onRetry">重试</button>
+    </view>
+
+    <block wx:elif="{{entry}}">
+        <view class="card">
+            <view class="entry-head">
+                <text class="entry-type">{{entry.typeText}}</text>
+                <text class="entry-category">{{entry.categoryName}}</text>
+            </view>
+            <text class="entry-title">{{entry.title}}</text>
+            <text class="entry-time">{{entry.timeText}}</text>
+
+            <view class="entry-tags" wx:if="{{entry.tags.length > 0}}">
+                <text class="tag" wx:for="{{entry.tags}}" wx:key="*this">{{item}}</text>
+            </view>
+        </view>
+
+        <view class="card" wx:if="{{entry.summary}}">
+            <text class="card-title">摘要</text>
+            <text class="body-text">{{entry.summary}}</text>
+        </view>
+
+        <view class="card" wx:if="{{entry.keyPoints.length > 0}}">
+            <text class="card-title">重点信息</text>
+            <view class="point" wx:for="{{entry.keyPoints}}" wx:key="*this">
+                <view class="point-dot"></view>
+                <text class="point-text">{{item}}</text>
+            </view>
+        </view>
+
+        <view class="card" wx:if="{{entry.keywords.length > 0}}">
+            <text class="card-title">关键词</text>
+            <view class="kw-row">
+                <text class="kw" wx:for="{{entry.keywords}}" wx:key="*this">{{item}}</text>
+            </view>
+        </view>
+
+        <view class="card" wx:if="{{todos.length > 0}}">
+            <text class="card-title">抽取出的待办</text>
+            <view class="todo-row" wx:for="{{todos}}" wx:key="index">
+                <view class="todo-box"></view>
+                <text class="todo-text">{{item.title}}</text>
+            </view>
+        </view>
+
+        <view class="card">
+            <text class="card-title">原文</text>
+            <text class="body-text">{{entry.content}}</text>
+        </view>
+
+        <view class="card" wx:if="{{related.length > 0}}">
+            <text class="card-title">关联内容</text>
+            <view class="related" wx:for="{{related}}" wx:key="id" data-id="{{item.id}}" bindtap="onRelatedTap">
+                <text class="related-title">{{item.title}}</text>
+                <text class="related-preview">{{item.preview}}</text>
+                <text class="related-reason" wx:if="{{item.reasons.length > 0}}">{{item.reasons[0]}}</text>
+            </view>
+        </view>
+
+        <button class="btn-danger delete-btn" bindtap="onDelete">删除这条记录</button>
+    </block>
+</view>

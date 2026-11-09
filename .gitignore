@@ -1,0 +1,15 @@
+# ===== 密钥 / 凭据（绝不入库） =====
+.wbapp_*.privacy.json
+project.private.config.json
+
+# ===== 依赖与构建产物 =====
+node_modules/
+miniprogram_npm/
+minitest/
+package-lock.json
+
+# ===== WorkBuddy 内部目录 =====
+.workbuddy/
+
+# 说明：images/ 下的二进制图片资源不在此忽略，
+# 待本机配好 git 凭据后由 `git add images && git commit && git push` 补入。

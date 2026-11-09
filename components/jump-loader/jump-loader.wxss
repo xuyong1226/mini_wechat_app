@@ -1,0 +1,425 @@
+/* 简笔小人跳动加载动画
+   纯 WXSS 绘制 + CSS 关键帧合成，不依赖任何图片 / 外部素材。
+   配色沿用全局墨黑杂志风：墨 var(--ink) / 次墨 var(--ink2) / 细线 var(--rule) / 朱红 var(--red) / 纸白 var(--sheet)。
+   动画只改 transform / opacity，不触发重排；舞台固定高度，不做全屏遮罩。 */
+
+.jl-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32rpx 48rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.jl-stage {
+    position: relative;
+    width: 160rpx;
+    height: 190rpx;
+}
+
+.jl-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: 12rpx;
+    width: 76rpx;
+    height: 12rpx;
+    margin-left: -38rpx;
+    border-radius: 50%;
+    background: var(--rule);
+    animation: jl-shadow 1.15s ease-in-out infinite both;
+}
+
+.jl-anchor {
+    position: absolute;
+    left: 50%;
+    bottom: 24rpx;
+    width: 80rpx;
+    height: 116rpx;
+    margin-left: -40rpx;
+}
+
+.jl-figure {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 100%;
+    animation: jl-jump 1.15s ease-in-out infinite both;
+}
+
+.jl-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 44rpx;
+    height: 44rpx;
+    margin-left: -22rpx;
+    box-sizing: border-box;
+    border: 4rpx solid var(--ink);
+    border-radius: 50%;
+    background: var(--sheet);
+}
+
+.jl-eye {
+    position: absolute;
+    top: 15rpx;
+    width: 5rpx;
+    height: 7rpx;
+    border-radius: 3rpx;
+    background: var(--ink);
+}
+
+.jl-eye-l { left: 11rpx; }
+.jl-eye-r { right: 11rpx; }
+
+.jl-smile {
+    position: absolute;
+    top: 24rpx;
+    left: 50%;
+    width: 12rpx;
+    height: 7rpx;
+    margin-left: -6rpx;
+    border-bottom: 2rpx solid var(--ink);
+    border-radius: 0 0 12rpx 12rpx;
+}
+
+.jl-scarf {
+    position: absolute;
+    top: 45rpx;
+    left: 50%;
+    width: 24rpx;
+    height: 5rpx;
+    margin-left: -12rpx;
+    background: var(--red);
+}
+
+.jl-body {
+    position: absolute;
+    top: 50rpx;
+    left: 50%;
+    width: 4rpx;
+    height: 38rpx;
+    margin-left: -2rpx;
+    border-radius: 2rpx;
+    background: var(--ink);
+}
+
+.jl-arm,
+.jl-leg {
+    position: absolute;
+    left: 50%;
+    width: 4rpx;
+    margin-left: -2rpx;
+    border-radius: 2rpx;
+    background: var(--ink);
+    transform-origin: 50% 0;
+}
+
+.jl-arm { top: 54rpx; height: 30rpx; }
+.jl-leg { top: 86rpx; height: 30rpx; }
+
+.jl-arm-l { animation: jl-arm-l 1.15s ease-in-out infinite both; }
+.jl-arm-r { animation: jl-arm-r 1.15s ease-in-out infinite both; }
+.jl-leg-l { animation: jl-leg-l 1.15s ease-in-out infinite both; }
+.jl-leg-r { animation: jl-leg-r 1.15s ease-in-out infinite both; }
+
+.jl-caption {
+    margin-top: 4rpx;
+    font-size: 24rpx;
+    line-height: 1.6;
+    letter-spacing: 2rpx;
+    color: var(--ink2);
+    text-align: center;
+}
+
+/* 起跳 → 腾空 → 落地 → 缓冲回弹，一个完整循环 1.15s */
+@keyframes jl-jump {
+    0%   { transform: translateY(0)      scale(1.06, 0.90); }
+    10%  { transform: translateY(-8rpx)  scale(0.96, 1.06); }
+    30%  { transform: translateY(-48rpx) scale(1.00, 1.00); }
+    46%  { transform: translateY(-44rpx) scale(1.00, 1.00); }
+    62%  { transform: translateY(0)      scale(1.12, 0.86); }
+    74%  { transform: translateY(-6rpx)  scale(0.99, 1.02); }
+    86%  { transform: translateY(0)      scale(1.04, 0.94); }
+    100% { transform: translateY(0)      scale(1.06, 0.90); }
+}
+
+/* 手脚与跳跃同周期同缓动，保证同步；腾空上举、落地摆下 */
+@keyframes jl-arm-l {
+    0%, 100% { transform: rotate(30deg); }
+    10%      { transform: rotate(-8deg); }
+    30%, 46% { transform: rotate(-50deg); }
+    62%      { transform: rotate(44deg); }
+    74%      { transform: rotate(18deg); }
+}
+
+@keyframes jl-arm-r {
+    0%, 100% { transform: rotate(-30deg); }
+    10%      { transform: rotate(8deg); }
+    30%, 46% { transform: rotate(50deg); }
+    62%      { transform: rotate(-44deg); }
+    74%      { transform: rotate(-18deg); }
+}
+
+@keyframes jl-leg-l {
+    0%, 100% { transform: rotate(14deg); }
+    10%      { transform: rotate(2deg); }
+    30%, 46% { transform: rotate(-22deg); }
+    62%      { transform: rotate(26deg); }
+    74%      { transform: rotate(8deg); }
+}
+
+@keyframes jl-leg-r {
+    0%, 100% { transform: rotate(-14deg); }
+    10%      { transform: rotate(-2deg); }
+    30%, 46% { transform: rotate(22deg); }
+    62%      { transform: rotate(-26deg); }
+    74%      { transform: rotate(-8deg); }
+}
+
+@keyframes jl-shadow {
+    0%, 100% { transform: scaleX(1);    opacity: 1; }
+    30%, 46% { transform: scaleX(0.56); opacity: 0.35; }
+    62%      { transform: scaleX(1.14); opacity: 0.85; }
+}
+
+/* ===== 沮丧异常变体（mood="sad"）=====
+   侧身跪伏：小腿平贴地面、膝盖着地、大腿收向髋、躯干前倾伏低、双臂撑地、头低头；
+   持续流泪滴落地面成水渍；含站立→跪倒的一次塌陷过渡，之后眼泪循环、轻微抽泣。
+   造型沿用墨黑线条 + 纸白填充；眼泪用低饱和冷灰以读作水，不破坏杂志风。 */
+
+/* 地面水渍：塌陷后出现，随泪滴轻微荡漾 */
+.jl-puddle {
+    position: absolute;
+    left: 50%;
+    bottom: 10rpx;
+    width: 104rpx;
+    height: 12rpx;
+    margin-left: -52rpx;
+    border-radius: 50%;
+    background: #AEB9BE;
+    opacity: 0;
+    transform: scale(0.4);
+    animation: jl-puddle-in 1.3s ease-out forwards, jl-ripple 1.9s 1.3s ease-in-out infinite;
+}
+
+/* 跪倒整体：站立→跪倒的一次塌陷，之后保持 */
+.jl-kneel {
+    position: absolute;
+    left: 50%;
+    bottom: 12rpx;
+    width: 156rpx;
+    height: 150rpx;
+    margin-left: -78rpx;
+    transform-origin: 50% 100%;
+    animation: jl-collapse 1.3s ease-out forwards;
+}
+
+/* 平贴地面小腿：让"腿折叠、跪姿"一眼可读（侧身，自膝盖向后平铺） */
+.jl-kneel-shin {
+    position: absolute;
+    left: 46rpx;
+    bottom: 0;
+    width: 66rpx;
+    height: 14rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius: 7rpx;
+}
+
+/* 膝盖：明确着地于地面（侧身，前侧） */
+.jl-kneel-knee {
+    position: absolute;
+    left: 40rpx;
+    bottom: 4rpx;
+    width: 26rpx;
+    height: 28rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius: 13rpx;
+}
+
+/* 大腿：从膝盖收向髋部（侧身，向后上方） */
+.jl-kneel-thigh {
+    position: absolute;
+    left: 56rpx;
+    bottom: 22rpx;
+    width: 16rpx;
+    height: 60rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius: 8rpx;
+    transform-origin: 50% 100%;
+    transform: rotate(34deg);
+}
+
+/* 髋 / 臀部：大腿与躯干的连接处，略抬起 */
+.jl-kneel-hip {
+    position: absolute;
+    left: 72rpx;
+    bottom: 54rpx;
+    width: 38rpx;
+    height: 38rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius:19rpx;
+}
+
+/* 躯干：从髋部向前下方伏低（前倾约 104°，头落在前下方），传达无力瘫伏 */
+.jl-kneel-torso {
+    position: absolute;
+    left: 74rpx;
+    bottom: 52rpx;
+    width: 16rpx;
+    height: 56rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius: 8rpx;
+    transform-origin: 50% 100%;
+    transform: rotate(-104deg);
+}
+
+/* 双臂：远侧手臂（略后，作支撑纵深） */
+.jl-kneel-arm {
+    position: absolute;
+    bottom: 0;
+    width: 12rpx;
+    box-sizing: border-box;
+    background: var(--ink);
+    border-radius: 6rpx;
+    transform-origin: 50% 100%;
+}
+.jl-kneel-arm-far {
+    left: 24rpx;
+    height: 36rpx;
+    transform: rotate(4deg);
+    opacity: 0.5;
+}
+/* 近侧手臂：从肩部落到地面、手掌撑地，真正接触地面支撑上半身 */
+.jl-kneel-arm-near {
+    left: 16rpx;
+    height: 40rpx;
+    transform: rotate(8deg);
+}
+
+/* 手掌：贴在地面 */
+.jl-kneel-hand {
+    position: absolute;
+    left: 50%;
+    bottom: -2rpx;
+    width: 18rpx;
+    height: 14rpx;
+    margin-left: -9rpx;
+    box-sizing: border-box;
+    background: var(--ink);
+    border-radius: 9rpx 9rpx 6rpx 6rpx;
+}
+
+/* 头部：低头伏在前方，带轻微抽泣点头（3/4 朝向读者以便哭脸可读） */
+.jl-kneel-head {
+    position: absolute;
+    left: 8rpx;
+    bottom: 34rpx;
+    width: 40rpx;
+    height: 40rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 4rpx solid var(--ink);
+    border-radius: 50%;
+    transform-origin: 50% 80%;
+    transform: rotate(20deg);
+    animation: jl-sob 2.8s 1.3s ease-in-out infinite;
+}
+
+/* 紧锁的眉头：两道内高外低的短眉 */
+.jl-s-brow {
+    position: absolute;
+    top: 13rpx;
+    width: 12rpx;
+    height: 3rpx;
+    background: var(--ink);
+    border-radius: 2rpx;
+}
+.jl-s-brow-l { left: 9rpx;  transform: rotate(20deg); }
+.jl-s-brow-r { left: 21rpx; transform: rotate(-20deg); }
+
+/* 闭着的哭眼：向下弯的短弧（∪） */
+.jl-s-eye {
+    position: absolute;
+    top: 20rpx;
+    width: 10rpx;
+    height: 6rpx;
+    border-bottom: 2rpx solid var(--ink);
+    border-radius: 0 0 10rpx 10rpx;
+}
+.jl-s-eye-l { left: 11rpx; transform: rotate(6deg); }
+.jl-s-eye-r { left: 22rpx; transform: rotate(-6deg); }
+
+/* 张嘴哭泣：开口的小椭圆 */
+.jl-s-mouth {
+    position: absolute;
+    top: 29rpx;
+    left: 16rpx;
+    width: 11rpx;
+    height: 10rpx;
+    box-sizing: border-box;
+    background: var(--sheet);
+    border: 2rpx solid var(--ink);
+    border-radius: 50%;
+}
+
+/* 眼泪：从双眼滴落至水渍，循环（位于头部下方，落向地面） */
+.jl-tear {
+    position: absolute;
+    top: 120rpx;
+    width: 8rpx;
+    height: 11rpx;
+    background: #AEB9BE;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+.jl-tear-l { left: 22rpx; animation: jl-tear-fall 1.9s 1.3s infinite; }
+.jl-tear-r { left: 34rpx; animation: jl-tear-fall 1.9s 2.25s infinite; }
+
+/* 站立→跪倒：先直立，还想撑住，随后力气用尽前倾、落地一沉，落到跪伏 */
+@keyframes jl-collapse {
+    0%   { transform: translateY(-30rpx) scale(1.04, 1.10) rotate(0);    opacity: 0; }
+    14%  { opacity: 1; }
+    34%  { transform: translateY(-14rpx) scale(1.02, 1.04) rotate(4deg); }  /* 还想撑住 */
+    52%  { transform: translateY(-2rpx)  scale(0.99, 0.99) rotate(-3deg); } /* 力气用尽、前倾 */
+    70%  { transform: translateY(1rpx)   scale(1.03, 0.97) rotate(2deg); }  /* 落地一沉 */
+    100% { transform: translateY(0)      scale(1.00, 1.00) rotate(0); }
+}
+
+/* 水渍出现 */
+@keyframes jl-puddle-in {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 0.5; transform: scale(1); }
+}
+
+/* 水渍荡漾 */
+@keyframes jl-ripple {
+    0%, 100% { transform: scale(1);    opacity: 0.5; }
+    50%      { transform: scale(1.06); opacity: 0.36; }
+}
+
+/* 抽泣：头部极轻微点头，幅度略加大 */
+@keyframes jl-sob {
+    0%, 100% { transform: rotate(20deg); }
+    50%      { transform: rotate(25deg) translateY(1.5rpx); }
+}
+
+/* 泪滴下落 */
+@keyframes jl-tear-fall {
+    0%   { transform: translateY(0)      rotate(45deg) scale(0.6); opacity: 0; }
+    12%  { opacity: 1; }
+    70%  { transform: translateY(58rpx)  rotate(45deg) scale(1);   opacity: 1; }
+    86%  { transform: translateY(62rpx)  rotate(45deg) scale(0.5); opacity: 0; }
+    100% { transform: translateY(62rpx)  rotate(45deg) scale(0.5); opacity: 0; }
+}

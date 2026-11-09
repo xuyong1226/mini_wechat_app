@@ -1,0 +1,224 @@
+/* 我的页 · 按 ui-design-proposal.html SCREEN 06 版面：
+   刊头 + 身份行 + 主数字统计 + 4 格细统计 + 细线分组设置 + 文字式退出。
+   设计稿 px 按 2× 换算为 rpx，色值沿用全局 token。 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+/* masthead 用 app.wxss 全局类，此处只定义内容区左右留白 */
+.profile-content {
+    margin: 0 48rpx;
+}
+
+/* 顶部齿轮 / 铃铛（SCREEN 06），铃铛带未读红点 */
+.masthead {
+    position: relative;
+}
+
+.masthead-tools {
+    position: absolute;
+    right: 0;
+    top: 16rpx;
+    display: flex;
+    align-items: center;
+    gap: 24rpx;
+}
+
+.tool-icon {
+    width: 44rpx;
+    height: 44rpx;
+    display: block;
+}
+
+.tool-bell {
+    position: relative;
+    width: 44rpx;
+    height: 44rpx;
+}
+
+.tool-dot {
+    position: absolute;
+    right: -2rpx;
+    top: -2rpx;
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: var(--red);
+}
+
+/* ---------- 身份行 ---------- */
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 32rpx;
+    margin-top: 44rpx;
+    padding-bottom: 44rpx;
+    border-bottom: 4rpx solid var(--ink);
+}
+
+.avatar-mark {
+    width: 92rpx;
+    height: 92rpx;
+    flex: 0 0 92rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 40rpx;
+    font-weight: 700;
+    color: var(--sheet);
+    border: 2rpx solid var(--rule);
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.identity-txt {
+    flex: 1;
+    min-width: 0;
+}
+
+.identity-name {
+    display: flex;
+    align-items: baseline;
+    gap: 16rpx;
+}
+
+.identity-nickname {
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 44rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.identity-edit {
+    font-size: 22rpx;
+    color: var(--red);
+    text-decoration: underline;
+    flex-shrink: 0;
+}
+
+.identity-desc {
+    display: block;
+    font-size: 22rpx;
+    color: var(--ink2);
+    line-height: 1.7;
+    margin-top: 10rpx;
+}
+
+/* ---------- 分组标题 ---------- */
+.sec-label {
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+    margin: 44rpx 0 14rpx;
+}
+
+/* ---------- 主数字统计 ---------- */
+.statbig {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 44rpx;
+    padding-bottom: 36rpx;
+    border-bottom: 2rpx solid var(--rule);
+}
+
+.statbig-main {
+    display: flex;
+    align-items: baseline;
+}
+
+.statbig-n {
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 104rpx;
+    font-weight: 700;
+    line-height: .9;
+    letter-spacing: -4rpx;
+    color: var(--ink);
+}
+
+.statbig-u {
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-left: 16rpx;
+}
+
+.statbig-open {
+    font-size: 22rpx;
+    color: var(--red);
+    font-weight: 600;
+    padding-bottom: 8rpx;
+}
+
+/* ---------- 4 格细统计 ---------- */
+.statmini {
+    display: flex;
+    border-bottom: 2rpx solid var(--rule);
+}
+
+.statmini-cell {
+    flex: 1;
+    padding: 28rpx 0 28rpx 28rpx;
+    border-left: 2rpx solid var(--rule);
+}
+
+.statmini-cell:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.statmini-n {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.statmini-warn {
+    color: var(--red);
+}
+
+.statmini-u {
+    display: block;
+    font-size: 20rpx;
+    color: var(--ink2);
+}
+
+/* ---------- 细线设置行 ---------- */
+/* ---------- 退出登录（文字式，上下细线） ---------- */
+.signout {
+    margin-top: 52rpx;
+    text-align: center;
+    font-size: 24rpx;
+    font-weight: 600;
+    color: var(--red);
+    padding: 28rpx 0;
+    border-top: 2rpx solid var(--rule);
+    border-bottom: 2rpx solid var(--rule);
+}
+
+/* ---------- 未登录态 ---------- */
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+}

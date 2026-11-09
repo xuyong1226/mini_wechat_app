@@ -1,0 +1,112 @@
+<view class="login">
+    <view class="authform">
+        <text class="authlabel">账号 / ACCOUNT</text>
+        <input
+            class="login-input"
+            type="text"
+            placeholder="{{mode === 'forgot' ? '注册时填写的邮箱' : '手机号或邮箱'}}"
+            placeholder-class="login-placeholder"
+            value="{{account}}"
+            bindinput="onAccountInput"
+        />
+
+        <block wx:if="{{mode !== 'forgot'}}">
+            <text class="authlabel authlabel-gap">密码 / PASSWORD</text>
+            <input
+                class="login-input"
+                type="text"
+                password="{{true}}"
+                placeholder="请输入密码"
+                placeholder-class="login-placeholder"
+                value="{{password}}"
+                bindinput="onPasswordInput"
+            />
+        </block>
+
+        <block wx:if="{{mode === 'forgot'}}">
+            <text class="authlabel authlabel-gap">新密码 / NEW PASSWORD</text>
+            <input
+                class="login-input"
+                type="text"
+                password="{{true}}"
+                placeholder="新密码（至少 6 位）"
+                placeholder-class="login-placeholder"
+                value="{{newPassword}}"
+                bindinput="onNewPasswordInput"
+            />
+        </block>
+
+        <!-- 未注册时页内展开：确认密码 + 验证码，仍走官方 OTP -->
+        <block wx:if="{{signup}}">
+            <text class="authlabel authlabel-gap">确认密码 / CONFIRM</text>
+            <input
+                class="login-input"
+                type="text"
+                password="{{true}}"
+                placeholder="确认密码"
+                placeholder-class="login-placeholder"
+                value="{{confirmPassword}}"
+                bindinput="onConfirmInput"
+            />
+            <text class="authlabel authlabel-gap">邮箱验证码 / CODE</text>
+            <view class="login-row">
+                <input
+                    class="login-input login-code"
+                    type="text"
+                    placeholder="验证码"
+                    placeholder-class="login-placeholder"
+                    value="{{code}}"
+                    bindinput="onCodeInput"
+                />
+                <view
+                    class="login-send {{sending || countdown > 0 ? 'login-send-disabled' : ''}}"
+                    bindtap="sendCode"
+                >{{countdown > 0 ? countdown + ' 秒后重发' : (sending ? '发送中' : '获取验证码')}}</view>
+            </view>
+        </block>
+
+        <block wx:if="{{mode === 'forgot'}}">
+            <text class="authlabel authlabel-gap">邮箱验证码 / CODE</text>
+            <view class="login-row">
+                <input
+                    class="login-input login-code"
+                    type="text"
+                    placeholder="邮箱验证码"
+                    placeholder-class="login-placeholder"
+                    value="{{code}}"
+                    bindinput="onCodeInput"
+                />
+                <view
+                    class="login-send {{sending || countdown > 0 ? 'login-send-disabled' : ''}}"
+                    bindtap="sendCode"
+                >{{countdown > 0 ? countdown + ' 秒后重发' : (sending ? '发送中' : '获取验证码')}}</view>
+            </view>
+        </block>
+
+        <button class="login-button" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">{{submitText}}</button>
+
+        <view class="login-links">
+            <block wx:if="{{mode === 'login' && !signup}}">
+                <text class="login-link" data-mode="forgot" bindtap="onSwitchMode">忘记密码？</text>
+                <text class="login-link" bindtap="onOpenSignup">没有账号？注册</text>
+            </block>
+            <text class="login-link" wx:if="{{mode === 'login' && signup}}" bindtap="onCloseSignup">已有账号，去登录 ›</text>
+            <text class="login-link" wx:if="{{mode === 'forgot'}}" data-mode="login" bindtap="onSwitchMode">返回登录 ›</text>
+        </view>
+
+        <block wx:if="{{mode === 'login'}}">
+            <view class="wechat-divider">
+                <text class="wechat-divider-text">或</text>
+            </view>
+            <button
+                class="wechat-button"
+                loading="{{wechatLoggingIn}}"
+                disabled="{{wechatLoggingIn || submitting}}"
+                bindtap="onWechatLogin"
+            >微信登录</button>
+        </block>
+
+        <text class="login-tip" wx:if="{{tip}}">{{tip}}</text>
+        <text class="login-error" wx:if="{{error}}">{{error}}</text>
+    </view>
+</view>

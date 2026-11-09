@@ -1,0 +1,193 @@
+/* 待办页 · 墨黑杂志风：衬线大数字 + 方角勾选框 + 细线列表 */
+
+.page {
+    box-sizing: border-box;
+    padding-bottom: 280rpx;
+}
+
+.stat-card {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 12rpx;
+    padding: 32rpx 0 24rpx;
+    margin: 0 48rpx;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.stat-num {
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 112rpx;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+}
+
+.stat-done {
+    color: var(--ink);
+    margin-left: 24rpx;
+}
+
+.stat-label {
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-left: 8rpx;
+}
+
+.stat-divider {
+    margin: 0 12rpx;
+    color: var(--rule);
+}
+
+.todo {
+    background: transparent;
+    border-radius: 0;
+    padding: 28rpx 0;
+    margin: 0 48rpx;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.todo-main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 方框点击热区：只有点这里才会切换完成状态。
+   负 margin 抵消 padding，方框视觉位置与原来完全一致，热区扩大到约 72×84rpx。 */
+.todo-check-hit {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24rpx 12rpx 24rpx 24rpx;
+    margin: -20rpx 12rpx -20rpx -24rpx;
+}
+
+.todo-check {
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 0;
+    border: 3rpx solid var(--ink);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+    color: var(--sheet);
+}
+
+.todo-check-done {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.todo-body {
+    flex: 1;
+}
+
+.todo-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+.todo-title-done {
+    color: var(--ink2);
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.todo-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10rpx;
+    gap: 12rpx;
+}
+
+.todo-priority {
+    font-size: 20rpx;
+    padding: 3rpx 12rpx;
+    border: 1rpx solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink2);
+    margin-right: 0;
+}
+
+.todo-priority-high {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.todo-priority-low {
+    color: var(--ink2);
+}
+
+.todo-due {
+    font-size: 22rpx;
+    color: var(--red);
+    margin-right: 0;
+}
+
+.todo-source {
+    font-size: 22rpx;
+    color: var(--ink2);
+    border-bottom: 1rpx solid var(--ink2);
+}
+
+.todo-del {
+    font-size: 24rpx;
+    color: var(--red);
+    padding-left: 24rpx;
+    flex-shrink: 0;
+}
+
+.done-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40rpx 48rpx 8rpx;
+}
+
+.done-title {
+    font-size: 20rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+    color: var(--red);
+}
+
+.done-arrow {
+    font-size: 24rpx;
+    color: var(--ink2);
+}
+
+.login-card {
+    margin-top: 60rpx;
+}
+
+.login-title {
+    display: block;
+    font-family: "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.login-desc {
+    display: block;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: var(--ink2);
+    margin-bottom: 20rpx;
+}
+
+.retry-btn {
+    margin-top: 24rpx;
+}

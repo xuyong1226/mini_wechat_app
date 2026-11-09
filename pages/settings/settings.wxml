@@ -1,0 +1,47 @@
+<view class="page page2">
+    <view class="masthead">
+        <text class="masthead-eyebrow">SETTINGS / 设置</text>
+        <text class="masthead-title">设置</text>
+        <view class="masthead-meta">
+            <text>账号与偏好</text>
+            <text>仅本人可见</text>
+        </view>
+    </view>
+
+    <view class="setgroup">
+        <view class="gh">账号个人设置 / ACCOUNT & PERSONAL</view>
+        <view class="setrow" bindtap="onOpenAccount">
+            <text class="setrow-k">账号与安全</text>
+            <text class="setrow-v setrow-link">管理 ›</text>
+        </view>
+        <view class="setrow" bindtap="onOpenTerms">
+            <text class="setrow-k">隐私协议</text>
+            <text class="setrow-v setrow-link">用户协议 / 隐私政策 ›</text>
+        </view>
+    </view>
+
+    <view class="setgroup">
+        <view class="gh">通用设置 / GENERAL</view>
+        <view class="setrow">
+            <text class="setrow-k">智能引擎</text>
+            <text class="setrow-v">{{modelName || '本地规则引擎'}}</text>
+        </view>
+        <text class="rowhint" wx:if="{{modelHint}}">{{modelHint}}</text>
+        <view class="setrow" bindtap="onToggleNotice">
+            <text class="setrow-k">消息中心</text>
+            <view class="switch {{noticeOn ? 'on' : ''}}"><view class="knob"></view></view>
+        </view>
+        <view class="setrow">
+            <text class="setrow-k">深色模式</text>
+            <text class="setrow-v">跟随系统</text>
+        </view>
+        <view class="setrow">
+            <text class="setrow-k">语言</text>
+            <text class="setrow-v">简体中文</text>
+        </view>
+        <view class="setrow">
+            <text class="setrow-k">关于</text>
+            <text class="setrow-v">版本 1.7.0</text>
+        </view>
+    </view>
+</view>

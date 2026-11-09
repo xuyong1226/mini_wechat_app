@@ -1,0 +1,155 @@
+<view class="page page2">
+    <view class="card login-card" wx:if="{{authState === 'signed-out'}}">
+        <text class="login-title">未登录</text>
+        <text class="login-desc">前往登录页，用账号密码登录。</text>
+        <button class="btn-ghost" bindtap="onGoLogin">去登录</button>
+    </view>
+
+    <block wx:else>
+        <view class="masthead">
+            <text class="masthead-eyebrow">ACCOUNT / 账号与安全</text>
+            <text class="masthead-title">账号与安全</text>
+            <view class="masthead-meta">
+                <text>管理登录与绑定</text>
+                <text>仅本人可见</text>
+            </view>
+        </view>
+
+        <view class="sec-label">登录账号 / SIGN-IN ID</view>
+        <view class="settingrow">
+            <text class="row-k">账号类型</text>
+            <text class="row-v">{{accountLabel}}</text>
+        </view>
+        <view class="settingrow">
+            <text class="row-k">登录账号</text>
+            <text class="row-v">{{loginAccount}}</text>
+        </view>
+        <text class="rowhint">账号在注册时确定（邮箱或手机号）。如需增加微信、邮箱或手机号等其它登录方式，在下方「登录方式」里绑定，绑定后都进入同一个账号。</text>
+
+        <view class="sec-label sec-gap">登录方式 / SIGN-IN METHODS</view>
+        <view class="provider-row" wx:for="{{providers}}" wx:key="provider">
+            <view class="provider-main">
+                <text class="row-k">{{item.label}}</text>
+                <text class="provider-value {{item.bound ? 'is-bound' : ''}}">{{item.value}}</text>
+            </view>
+            <view
+                wx:if="{{!item.bound}}"
+                class="btn-ghost provider-btn"
+                data-provider="{{item.provider}}"
+                bindtap="onBind"
+            >绑定</view>
+            <text wx:else class="provider-tag">已绑定</text>
+        </view>
+        <text class="rowhint">同一登录标识只能属于一个账号。若该微信 / 邮箱 / 手机号已在别的账号下使用，绑定时会被拦下，不会自动把两个账号的数据合到一起。</text>
+
+        <view class="sec-label sec-gap">备用联系方式 / CONTACT</view>
+        <view class="contact-row">
+            <text class="row-k">邮箱</text>
+            <input
+                class="field-input"
+                type="text"
+                placeholder="用于找回密码时联系你"
+                placeholder-class="field-placeholder"
+                value="{{emailInput}}"
+                bindinput="onEmailInput"
+            />
+        </view>
+        <button class="btn-ghost field-btn" loading="{{savingEmail}}" disabled="{{savingEmail}}" bindtap="onSaveEmail">保存邮箱</button>
+        <view class="contact-row">
+            <text class="row-k">手机</text>
+            <input
+                class="field-input"
+                type="text"
+                placeholder="用于找回密码时联系你"
+                placeholder-class="field-placeholder"
+                value="{{phoneInput}}"
+                bindinput="onPhoneInput"
+            />
+        </view>
+        <button class="btn-ghost field-btn" loading="{{savingPhone}}" disabled="{{savingPhone}}" bindtap="onSavePhone">保存手机</button>
+        <text class="rowhint">备用联系方式仅保存在你的云端空间，作为联系信息使用，本身不能登录；要用于登录请在上方「登录方式」里绑定。</text>
+
+        <view class="sec-label sec-gap">密码 / PASSWORD</view>
+        <block wx:if="{{!isWechat}}">
+            <view class="settingrow" bindtap="onTogglePwdForm">
+                <text class="row-k">修改密码</text>
+                <text class="row-v row-link">{{pwdOpen ? '收起' : '修改 ›'}}</text>
+            </view>
+            <block wx:if="{{pwdOpen}}">
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    password="{{true}}"
+                    placeholder="原密码"
+                    placeholder-class="field-placeholder"
+                    value="{{oldPassword}}"
+                    bindinput="onOldPasswordInput"
+                />
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    password="{{true}}"
+                    placeholder="新密码（至少6位）"
+                    placeholder-class="field-placeholder"
+                    value="{{newPassword}}"
+                    bindinput="onNewPasswordInput"
+                />
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    password="{{true}}"
+                    placeholder="确认新密码"
+                    placeholder-class="field-placeholder"
+                    value="{{confirmPassword}}"
+                    bindinput="onConfirmPasswordInput"
+                />
+                <button class="btn-primary field-btn" loading="{{changingPassword}}" disabled="{{changingPassword}}" bindtap="onChangePassword">确认修改</button>
+            </block>
+            <text class="rowhint">点按展开本页内的「原密码 / 新密码 / 确认」三字段表单；此前用验证码登录、还没设密码的账号，请用下方邮箱验证码入口设置密码。</text>
+
+            <view class="settingrow" bindtap="onToggleResetForm">
+                <text class="row-k">忘记密码 / 首次设置密码</text>
+                <text class="row-v row-link">{{resetOpen ? '收起' : '邮箱验证码 ›'}}</text>
+            </view>
+            <block wx:if="{{resetOpen}}">
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    placeholder="注册时填写的邮箱"
+                    placeholder-class="field-placeholder"
+                    value="{{resetEmail}}"
+                    bindinput="onResetEmailInput"
+                />
+                <view class="login-row">
+                    <input
+                        class="field-input field-code"
+                        type="text"
+                        placeholder="邮箱验证码"
+                        placeholder-class="field-placeholder"
+                        value="{{resetCode}}"
+                        bindinput="onResetCodeInput"
+                    />
+                    <view class="btn-ghost send-btn" bindtap="onSendResetCode">{{resetSending ? '发送中' : '获取验证码'}}</view>
+                </view>
+                <input
+                    class="field-input field-block"
+                    type="text"
+                    password="{{true}}"
+                    placeholder="新密码（至少6位）"
+                    placeholder-class="field-placeholder"
+                    value="{{resetNewPassword}}"
+                    bindinput="onResetNewPasswordInput"
+                />
+                <button class="btn-primary field-btn" loading="{{resetSubmitting}}" disabled="{{resetSubmitting}}" bindtap="onConfirmReset">确认设置密码</button>
+            </block>
+            <text class="rowhint">通过注册时填写的邮箱接收验证码并重置密码；手机号注册的账号暂不支持自助找回。</text>
+        </block>
+        <block wx:else>
+            <text class="rowhint">当前使用微信快捷登录，账号由微信身份识别，不涉及登录密码，因此不提供修改密码与邮箱找回密码。</text>
+            <text class="rowhint">绑定邮箱或手机号后，即可改用账号密码登录；两种方式看到的是同一份记录。</text>
+        </block>
+
+        <text class="login-tip" wx:if="{{tip}}">{{tip}}</text>
+        <text class="login-error" wx:if="{{error}}">{{error}}</text>
+    </block>
+</view>

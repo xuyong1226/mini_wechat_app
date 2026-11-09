@@ -1,0 +1,195 @@
+/* 消息中心 · SCREEN 11 / 11b（ui-design-proposal.html 第 919–1010 行）
+   设计稿 px 按 2× 换算 rpx，色值沿用全局 token。
+   刊头复用 app.wxss 的 .masthead*。 */
+
+.page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80rpx;
+}
+
+.tools {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+}
+
+.ic {
+    width: 44rpx;
+    height: 44rpx;
+    padding: 8rpx;
+    box-sizing: border-box;
+    border: 1rpx solid var(--rule);
+}
+
+.ic.danger {
+    border-color: var(--red);
+}
+
+.content {
+    margin: 0 48rpx;
+}
+
+.msgfilter {
+    display: flex;
+    gap: 16rpx;
+    margin: 28rpx 0 4rpx;
+}
+
+.chip {
+    font-size: 22rpx;
+    padding: 10rpx 26rpx;
+    border: 1rpx solid var(--rule);
+    color: var(--ink2);
+}
+
+.chip.on {
+    background: var(--ink);
+    color: var(--sheet);
+    border-color: var(--ink);
+}
+
+.msglist {
+    margin-top: 8rpx;
+}
+
+.msg {
+    display: flex;
+    gap: 24rpx;
+    padding: 28rpx 0;
+    border-bottom: 1rpx solid var(--rule);
+}
+
+.msg.unread .mt {
+    color: var(--ink);
+}
+
+.mi {
+    width: 68rpx;
+    height: 68rpx;
+    flex-shrink: 0;
+    padding: 14rpx;
+    box-sizing: border-box;
+    border: 1rpx solid var(--rule);
+}
+
+.mb {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.mt {
+    font-size: 26rpx;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.ms {
+    font-size: 22rpx;
+    line-height: 1.6;
+    color: var(--ink2);
+    margin-top: 6rpx;
+}
+
+.mti {
+    font-size: 20rpx;
+    letter-spacing: 2rpx;
+    color: var(--ink2);
+    margin-top: 14rpx;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14rpx;
+    flex-shrink: 0;
+}
+
+.time {
+    font-size: 20rpx;
+    color: var(--ink2);
+}
+
+.ud {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: var(--red);
+}
+
+.ud.off {
+    background: transparent;
+}
+
+.msgempty {
+    padding: 80rpx 0;
+    text-align: center;
+    font-size: 24rpx;
+    color: var(--ink2);
+}
+
+/* ---------- 11b 清空确认：墨黑底部动作条 ---------- */
+.sheet-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.45);
+    z-index: 20;
+}
+
+.sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 21;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 44rpx 48rpx 60rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.stitle {
+    font-size: 30rpx;
+    font-weight: 600;
+}
+
+.ssub {
+    font-size: 22rpx;
+    line-height: 1.7;
+    color: rgba(247, 245, 240, 0.66);
+    margin-top: 16rpx;
+}
+
+.sbtns {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+    margin-top: 40rpx;
+}
+
+.sbtn {
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 600;
+    padding: 26rpx 0;
+}
+
+.sbtn.ok {
+    background: var(--red);
+    color: var(--sheet);
+}
+
+.sbtn.cancel {
+    color: var(--paper);
+    background: transparent;
+    border: 1rpx solid rgba(247, 245, 240, 0.28);
+}
