@@ -24,9 +24,9 @@ const CATEGORY_LABEL = {
 };
 
 const CATEGORY_ICON = {
-    system: '/images/icon-msg-shield.png',
-    entry: '/images/icon-msg-check.png',
-    todo: '/images/icon-msg-alert.png',
+    system: 'shield',
+    entry: 'check-circle',
+    todo: 'alert-circle',
 };
 
 const MAX_ITEMS = 30;

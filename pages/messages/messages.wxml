@@ -18,8 +18,8 @@
                 bindtap="onFilter"
             >{{item.label}}</view>
             <view class="tools">
-                <image class="ic" src="/images/icon-broom.png" bindtap="onMarkAll" />
-                <image class="ic danger" src="/images/icon-trash.png" bindtap="onAskClear" />
+                <ui-icon class="ic" name="check-circle" size="28rpx" bindtap="onMarkAll" />
+                <ui-icon class="ic danger" name="trash-2" size="28rpx" bindtap="onAskClear" />
             </view>
         </view>
 
@@ -31,7 +31,7 @@
                 data-id="{{item.id}}"
                 bindtap="onTapItem"
             >
-                <image class="mi" src="{{item.icon}}" />
+                <ui-icon class="mi" name="{{item.icon}}" size="40rpx" />
                 <view class="mb">
                     <text class="mt">{{item.title}}</text>
                     <text class="ms">{{item.body}}</text>

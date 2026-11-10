@@ -14,9 +14,9 @@
                 <text>仅本人可见</text>
             </view>
             <view class="masthead-tools">
-                <image class="tool-icon" src="/images/icon-settings.png" bindtap="onOpenSettings" />
+                <ui-icon class="tool-icon" name="settings" size="44rpx" bindtap="onOpenSettings" />
                 <view class="tool-bell" bindtap="onOpenMessages">
-                    <image class="tool-icon" src="/images/icon-bell.png" />
+                    <ui-icon class="tool-icon" name="bell" size="44rpx" />
                     <view class="tool-dot" wx:if="{{unreadCount > 0}}"></view>
                 </view>
             </view>

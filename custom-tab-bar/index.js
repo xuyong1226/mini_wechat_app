@@ -18,11 +18,11 @@ Component({
     data: {
         selected: 0,
         list: [
-            { pagePath: '/pages/index/index', text: '记录' },
-            { pagePath: '/pages/search/search', text: '检索' },
-            { pagePath: '/pages/todo/todo', text: '待办' },
-            { pagePath: '/pages/report/report', text: '总结' },
-            { pagePath: '/pages/profile/profile', text: '我的' },
+            { pagePath: '/pages/index/index', text: '记录', icon: 'list' },
+            { pagePath: '/pages/search/search', text: '检索', icon: 'search' },
+            { pagePath: '/pages/todo/todo', text: '待办', icon: 'check-square' },
+            { pagePath: '/pages/report/report', text: '总结', icon: 'bar-chart-2' },
+            { pagePath: '/pages/profile/profile', text: '我的', icon: 'user' },
         ],
     },
 

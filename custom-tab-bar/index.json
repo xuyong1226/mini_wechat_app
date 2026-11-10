@@ -1,4 +1,6 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {
+        "ui-icon": "../../components/ui-icon/ui-icon"
+    }
 }

@@ -30,6 +30,7 @@
     width: 44rpx;
     height: 44rpx;
     display: block;
+    text-align: center;
 }
 
 .tool-bell {

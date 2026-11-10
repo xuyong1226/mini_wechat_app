@@ -1,0 +1,20 @@
+/* 图标字体（iconfont）：Feather Icons 子集，单色线框，颜色由 color 控制，随主题/深色自动适配。
+   字形来源：feather-icons@4.29.0（MIT），仅取项目所需 11 个图标离线编译，不依赖外部 CDN。 */
+
+@font-face {
+    font-family: "iconfont";
+    src: url('./fonts/iconfont.woff2') format('woff2'),
+         url('./fonts/iconfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 图标基础类：任何元素加上 iconfont 即应用字体；颜色默认跟随当前文字色 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+}

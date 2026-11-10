@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的",
   "usingComponents": {
-    "avatar-picker": "../../components/avatar-picker/avatar-picker"
+    "avatar-picker": "../../components/avatar-picker/avatar-picker",
+    "ui-icon": "../../components/ui-icon/ui-icon"
   }
 }

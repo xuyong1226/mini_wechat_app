@@ -10,6 +10,7 @@
             hover-stay-time="120"
             bindtap="onTap"
         >
+            <ui-icon class="tabicon" name="{{item.icon}}" size="40rpx" />
             <text class="tabtext">{{item.text}}</text>
             <view class="dot"></view>
         </view>
